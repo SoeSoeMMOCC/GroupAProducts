@@ -25,20 +25,20 @@ namespace GroupAProducts
                 String constring = "Server=127.0.0.1;Port=5432;Database=basicsql;User Id=postgres;Password=ssmroot;Timeout=15;";
                 NpgsqlConnection conDataBase = new NpgsqlConnection(constring);
                 conDataBase.Open();
-
+                string query = @"select customerid,customername from customers;";
                 MessageBox.Show("Hello Success");
-                //NpgsqlDataAdapter sda = new NpgsqlDataAdapter(string.Join(space, word1), constring);
-                //DataTable dbdataset = new DataTable();
-                //sda.Fill(dbdataset);
-                //dataGridView1.DataSource = dbdataset;
+                NpgsqlDataAdapter sda = new NpgsqlDataAdapter(query, constring);
+                DataTable dbdataset = new DataTable();
+                sda.Fill(dbdataset);
+                ProductGridView.DataSource = dbdataset;
 
-                ////Bind the data tothe GridView to display table data
-                //BindingSource bsource = new BindingSource();
-                //bsource.DataSource = dbdataset;
-                //dataGridView1.DataSource = bsource;
+                //Bind the data tothe GridView to display table data
+                BindingSource bsource = new BindingSource();
+                bsource.DataSource = dbdataset;
+                ProductGridView.DataSource = bsource;
 
-                ////Resize the DataGridView columns to fit the newly loaded content
-                //dataGridView1.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCellsExceptHeader);
+                //Resize the DataGridView columns to fit the newly loaded content
+                ProductGridView.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCellsExceptHeader);
             }
 
             catch (Exception ex)
