@@ -46,7 +46,7 @@ namespace GroupAProducts
                 List<ProductDetailModel> productlist = new List<ProductDetailModel>();
                 string error = "";
                 ProductRepository prodRepo = new ProductRepository();
-                productlist = prodRepo.getProductDetailList("%","%","%", out error);
+                productlist = prodRepo.getProductDetailList("%","%","%","%", out error);
                 //MessageBox.Show(loginreturn.Count().ToString());
                 ProductGridView.DataSource = loginreturn;
             }
