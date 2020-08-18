@@ -17,7 +17,7 @@ namespace GroupAProducts.Abstract
         {
             try
             {
-                constring = "Server=127.0.0.1;Port=5432;Database=basicsql;User Id=postgres;Password=ssmroot;Timeout=15;";
+                constring = "Server=127.0.0.1;Port=5432;Database=DB_GroupA;User Id=postgres;Password=yamin-mmocc;Timeout=15;";
                 conDataBase = new NpgsqlConnection(constring);
                 conDataBase.Open();               
             }
