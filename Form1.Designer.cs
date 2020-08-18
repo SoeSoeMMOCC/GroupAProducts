@@ -31,7 +31,9 @@
             this.button1 = new System.Windows.Forms.Button();
             this.ProductGridView = new System.Windows.Forms.DataGridView();
             this.customerid = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fileSystemWatcher1 = new System.IO.FileSystemWatcher();
             ((System.ComponentModel.ISupportInitialize)(this.ProductGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -62,6 +64,12 @@
             this.customerid.Name = "customerid";
             this.customerid.ReadOnly = true;
             // 
+            // fileSystemWatcher1
+            // 
+            this.fileSystemWatcher1.EnableRaisingEvents = true;
+            this.fileSystemWatcher1.SynchronizingObject = this;
+            this.fileSystemWatcher1.Changed += new System.IO.FileSystemEventHandler(this.fileSystemWatcher1_Changed);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -72,6 +80,7 @@
             this.Name = "Form1";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.ProductGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -81,6 +90,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridView ProductGridView;
         private System.Windows.Forms.DataGridViewTextBoxColumn customerid;
+        private System.IO.FileSystemWatcher fileSystemWatcher1;
     }
 }
 
