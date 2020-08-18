@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Npgsql;
 
 namespace GroupAProducts
 {
@@ -22,7 +23,7 @@ namespace GroupAProducts
         {
             try
             {
-                String constring = "Server=127.0.0.1;Port=5432;Database=basicsql;User Id=postgres;Password=ssmroot;Timeout=15;";
+                String constring = "Server=127.0.0.1;Port=5432;Database=basicsql;User Id=postgres;Password=yamin-mmocc;Timeout=15;";
                 NpgsqlConnection conDataBase = new NpgsqlConnection(constring);
                 conDataBase.Open();
                 string query = @"select customerid,customername from customers;";
