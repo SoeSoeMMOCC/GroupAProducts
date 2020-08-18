@@ -9,6 +9,7 @@ namespace GroupAProducts.SSMModel
     public class Loginhistory
     {
         public string customerid { get; set; }
+
         public string customername { get; set; }
     }
 }
