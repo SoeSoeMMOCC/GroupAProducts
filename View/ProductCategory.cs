@@ -22,12 +22,6 @@ namespace GroupAProducts.View
             InitializeComponent();
         }
 
-        private void dGV_ProductCategory_MouseDoubleClick(object sender, MouseEventArgs e)
-        {
-            ProductDetails = new ProductDetails();
-            ProductDetails.Show();           
-        }
-
         private void BindGrid()
         {
             try
@@ -50,6 +44,20 @@ namespace GroupAProducts.View
             GA_Common.ProID = null;
             GA_Common.PCatID = null;
             GA_Common.BrandID = null;
+        }
+
+        private void dGV_ProductCategory_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = dGV_ProductCategory.Rows[e.RowIndex];
+                GA_Common.ProID = Convert.ToString(row.Cells["productid"].Value);
+                GA_Common.PCatID = Convert.ToString(row.Cells["pcatid"].Value);
+                GA_Common.BrandID = Convert.ToString(row.Cells["brandid"].Value);
+                GA_Common.PDetailID = Convert.ToString(row.Cells["detailid"].Value);
+            }
+            ProductDetails = new ProductDetails();
+            ProductDetails.Show();
         }
     }
 }

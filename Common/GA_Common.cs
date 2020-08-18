@@ -11,5 +11,6 @@ namespace GroupAProducts.Common
         public static string ProID = null;
         public static string BrandID = null;
         public static string PCatID = null;
+        public static string PDetailID = null;
     }
 }

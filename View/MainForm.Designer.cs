@@ -144,6 +144,7 @@
             this.Controls.Add(this.dGV_ProductList);
             this.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.Name = "MainForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MainForm";
             this.Load += new System.EventHandler(this.MainForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dGV_ProductList)).EndInit();

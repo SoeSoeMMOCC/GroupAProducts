@@ -89,7 +89,7 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\Brand.cs" />
-    <Compile Include="Model\ProductCategory.cs" />
+    <Compile Include="Model\CategoryModel.cs" />
     <Compile Include="Model\ProductColor.cs" />
     <Compile Include="Model\ProductDetailModel.cs" />
     <Compile Include="Model\ProductModel.cs" />
