@@ -43,7 +43,7 @@ namespace GroupAProducts.View
                             dGV_ProductDetail.Columns[0].Name = "ProductID";
                             dGV_ProductDetail.Columns[0].HeaderText = "Number";
                             dGV_ProductDetail.Columns[0].DataPropertyName = "ProductID";
-                                              
+
                             dGV_ProductDetail.Columns[1].Name = "BrandName";
                             dGV_ProductDetail.Columns[1].HeaderText = "Brand Name";
                             dGV_ProductDetail.Columns[1].DataPropertyName = "BrandName";
@@ -62,4 +62,5 @@ namespace GroupAProducts.View
                 }
             }
         }
+    }
 }
