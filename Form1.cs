@@ -47,5 +47,10 @@ namespace GroupAProducts
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void ProductGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
