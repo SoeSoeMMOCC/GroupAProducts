@@ -202,6 +202,7 @@
             this.Controls.Add(this.lblproduct);
             this.Controls.Add(this.lblbrand);
             this.Name = "ProductDetails";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ProductDetails";
             this.Load += new System.EventHandler(this.ProductDetails_Load);
             this.ResumeLayout(false);
