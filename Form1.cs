@@ -1,4 +1,6 @@
-﻿using Npgsql;
+﻿using GroupAProducts.Repository;
+using GroupAProducts.SSMModel;
+using Npgsql;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -22,23 +24,29 @@ namespace GroupAProducts
         {
             try
             {
-                String constring = "Server=127.0.0.1;Port=5432;Database=basicsql;User Id=postgres;Password=ssmroot;Timeout=15;";
-                NpgsqlConnection conDataBase = new NpgsqlConnection(constring);
-                conDataBase.Open();
-                string query = @"select customerid,customername from customers;";
-                MessageBox.Show("Hello Success");
-                NpgsqlDataAdapter sda = new NpgsqlDataAdapter(query, constring);
-                DataTable dbdataset = new DataTable();
-                sda.Fill(dbdataset);
-                ProductGridView.DataSource = dbdataset;
+                //String constring = "Server=127.0.0.1;Port=5432;Database=basicsql;User Id=postgres;Password=ssmroot;Timeout=15;";
+                //NpgsqlConnection conDataBase = new NpgsqlConnection(constring);
+                //conDataBase.Open();
+                //string query = @"select customerid,customername from customers;";
+                //MessageBox.Show("Hello Success");
+                //NpgsqlDataAdapter sda = new NpgsqlDataAdapter(query, constring);
+                //DataTable dbdataset = new DataTable();
+                //sda.Fill(dbdataset);
+                //ProductGridView.DataSource = dbdataset;
 
-                //Bind the data tothe GridView to display table data
-                BindingSource bsource = new BindingSource();
-                bsource.DataSource = dbdataset;
-                ProductGridView.DataSource = bsource;
+                ////Bind the data tothe GridView to display table data
+                //BindingSource bsource = new BindingSource();
+                //bsource.DataSource = dbdataset;
+                //ProductGridView.DataSource = bsource;
 
-                //Resize the DataGridView columns to fit the newly loaded content
-                ProductGridView.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCellsExceptHeader);
+                ////Resize the DataGridView columns to fit the newly loaded content
+                //ProductGridView.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCellsExceptHeader);
+                List<Loginhistory> loginreturn = new List<Loginhistory>();
+                string error = "";
+                ProductRepository prodRepo = new ProductRepository();
+                loginreturn = prodRepo.get_administration_loginhistory_by_user(2, out error);
+                //MessageBox.Show(loginreturn.Count().ToString());
+                ProductGridView.DataSource = loginreturn;
             }
 
             catch (Exception ex)
