@@ -41,15 +41,18 @@ namespace GroupAProducts.Repository
         {
             error = "";
             List<ProductModel> productlist = new List<ProductModel>();
-            var sql = "select row_number() over (ORDER BY prod.productid)as rownum,"+
-                        "prod.productid,prod.productname,prodcat.pcatid,prodcat.pcatname,"+
-                        "brand.brandid,brand.brandname,count(*) as total_qty from productdetail pdetail"+
-                        "inner join products prod on pdetail.productid = prod.productid"+
-                        "inner join productcategory prodcat on prodcat.pcatid = prod.pcatid"+
-                         "inner join brand brand on brand.brandid = prod.brandid"+
-                         "where prod.productid like '%' and prodcat.pcatid like '%'"+
-                         "and brand.brandid like '%' group by prod.productid,prod.productname,prodcat.pcatid,prodcat.pcatname,"+
-                         "brand.brandid,brand.brandname; ";
+            var sql = 
+                "select row_number() over (ORDER BY prod.productid)as rownum,"+
+                "prod.productid,prod.productname,prodcat.pcatid,prodcat.pcatname,"+
+                "brand.brandid,brand.brandname,count(*) as total_qty from productdetail pdetail " +
+                "inner join products prod on pdetail.productid = prod.productid " +
+                "inner join productcategory prodcat on prodcat.pcatid = prod.pcatid " +
+                "inner join brand brand on brand.brandid = prod.brandid " +
+                "where  prod.productid like @p_productid and prodcat.pcatid like @p_pcatid " +
+                "and brand.brandid like @p_brand " +
+                "group by prod.productid,prod.productname,prodcat.pcatid,prodcat.pcatname," +
+                "brand.brandid,brand.brandname;" 
+                ;
             var parameters = new DynamicParameters();
             parameters.Add("p_productid", p_productid, GetDbType(""));
             parameters.Add("p_pcatid", p_pcatid, GetDbType(""));

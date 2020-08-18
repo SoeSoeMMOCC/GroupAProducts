@@ -1,4 +1,5 @@
-﻿using GroupAProducts.Repository;
+﻿using GroupAProducts.Model;
+using GroupAProducts.Repository;
 using GroupAProducts.SSMModel;
 using Npgsql;
 using System;
@@ -42,9 +43,10 @@ namespace GroupAProducts
                 ////Resize the DataGridView columns to fit the newly loaded content
                 //ProductGridView.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCellsExceptHeader);
                 List<Loginhistory> loginreturn = new List<Loginhistory>();
+                List<ProductModel> productlist = new List<ProductModel>();
                 string error = "";
                 ProductRepository prodRepo = new ProductRepository();
-                loginreturn = prodRepo.get_administration_loginhistory_by_user(2, out error);
+                productlist = prodRepo.getProductListByCount("%","%","%", out error);
                 //MessageBox.Show(loginreturn.Count().ToString());
                 ProductGridView.DataSource = loginreturn;
             }
@@ -56,6 +58,11 @@ namespace GroupAProducts
         }
 
         private void ProductGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void fileSystemWatcher1_Changed(object sender, System.IO.FileSystemEventArgs e)
         {
 
         }
