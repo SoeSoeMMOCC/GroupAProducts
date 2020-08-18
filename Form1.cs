@@ -43,10 +43,10 @@ namespace GroupAProducts
                 ////Resize the DataGridView columns to fit the newly loaded content
                 //ProductGridView.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCellsExceptHeader);
                 List<Loginhistory> loginreturn = new List<Loginhistory>();
-                List<ProductModel> productlist = new List<ProductModel>();
+                List<ProductDetailModel> productlist = new List<ProductDetailModel>();
                 string error = "";
                 ProductRepository prodRepo = new ProductRepository();
-                productlist = prodRepo.getProductListByCount("%","%","%", out error);
+                productlist = prodRepo.getProductDetailList("%","%","%", out error);
                 //MessageBox.Show(loginreturn.Count().ToString());
                 ProductGridView.DataSource = loginreturn;
             }
