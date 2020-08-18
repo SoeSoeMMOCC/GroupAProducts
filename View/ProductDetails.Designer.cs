@@ -41,6 +41,9 @@
             this.cmbColor = new System.Windows.Forms.ComboBox();
             this.cmbSize = new System.Windows.Forms.ComboBox();
             this.txtPrice = new System.Windows.Forms.TextBox();
+            this.btnSave = new System.Windows.Forms.Button();
+            this.btnCancel = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblbrand
@@ -150,11 +153,42 @@
             this.txtPrice.Size = new System.Drawing.Size(165, 20);
             this.txtPrice.TabIndex = 11;
             // 
+            // btnSave
+            // 
+            this.btnSave.Location = new System.Drawing.Point(137, 244);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(75, 23);
+            this.btnSave.TabIndex = 12;
+            this.btnSave.Text = "Save";
+            this.btnSave.UseVisualStyleBackColor = true;
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.Location = new System.Drawing.Point(303, 244);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(75, 23);
+            this.btnCancel.TabIndex = 13;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.Location = new System.Drawing.Point(487, 244);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(75, 23);
+            this.btnDelete.TabIndex = 14;
+            this.btnDelete.Text = "Delete";
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
             // ProductDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnDelete);
+            this.Controls.Add(this.btnCancel);
+            this.Controls.Add(this.btnSave);
             this.Controls.Add(this.txtPrice);
             this.Controls.Add(this.cmbSize);
             this.Controls.Add(this.cmbColor);
@@ -169,6 +203,7 @@
             this.Controls.Add(this.lblbrand);
             this.Name = "ProductDetails";
             this.Text = "ProductDetails";
+            this.Load += new System.EventHandler(this.ProductDetails_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -189,5 +224,8 @@
         private System.Windows.Forms.ComboBox cmbColor;
         private System.Windows.Forms.ComboBox cmbSize;
         private System.Windows.Forms.TextBox txtPrice;
+        private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.Button btnDelete;
     }
 }
