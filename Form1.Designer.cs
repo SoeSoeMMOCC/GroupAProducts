@@ -30,6 +30,7 @@
         {
             this.button1 = new System.Windows.Forms.Button();
             this.ProductGridView = new System.Windows.Forms.DataGridView();
+            this.customerid = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.ProductGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -46,11 +47,20 @@
             // ProductGridView
             // 
             this.ProductGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.ProductGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.customerid});
             this.ProductGridView.Location = new System.Drawing.Point(218, 149);
             this.ProductGridView.Name = "ProductGridView";
             this.ProductGridView.Size = new System.Drawing.Size(240, 150);
             this.ProductGridView.TabIndex = 1;
             this.ProductGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ProductGridView_CellContentClick);
+            // 
+            // customerid
+            // 
+            this.customerid.DataPropertyName = "customerid";
+            this.customerid.HeaderText = "Customer ID";
+            this.customerid.Name = "customerid";
+            this.customerid.ReadOnly = true;
             // 
             // Form1
             // 
@@ -70,6 +80,7 @@
 
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridView ProductGridView;
+        private System.Windows.Forms.DataGridViewTextBoxColumn customerid;
     }
 }
 
