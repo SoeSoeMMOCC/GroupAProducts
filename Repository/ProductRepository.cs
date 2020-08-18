@@ -91,7 +91,7 @@ namespace GroupAProducts.Repository
                 "inner join productcolor color on pdetail.colorid = color.colorid " +
                 "inner join productsize psize on psize.sizeid = pdetail.sizeid " +
                 "where prod.productid like @p_productid and prodcat.pcatid like @p_pcatid " +
-                "and brand.brandid like @p_pcatid and pdetail.isactive = true and pdetail.detailid like @p_pdetailid ; "
+                "and brand.brandid like @p_brand and pdetail.isactive = true and pdetail.detailid like @p_pdetailid ; "
             ;
             var parameters = new DynamicParameters();
             parameters.Add("p_productid", p_productid, GetDbType(""));

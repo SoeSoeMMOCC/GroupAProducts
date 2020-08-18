@@ -57,6 +57,7 @@
             this.dGV_ProductList.Name = "dGV_ProductList";
             this.dGV_ProductList.Size = new System.Drawing.Size(470, 362);
             this.dGV_ProductList.TabIndex = 0;
+            this.dGV_ProductList.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dGV_ProductList_CellMouseClick);
             // 
             // rownum
             // 
@@ -74,7 +75,6 @@
             this.ProductID.HeaderText = "Product ID";
             this.ProductID.Name = "ProductID";
             this.ProductID.Visible = false;
-            this.ProductID.Width = 83;
             // 
             // PCatID
             // 
@@ -83,7 +83,6 @@
             this.PCatID.HeaderText = "Category ID";
             this.PCatID.Name = "PCatID";
             this.PCatID.Visible = false;
-            this.PCatID.Width = 88;
             // 
             // BrandID
             // 
@@ -92,7 +91,6 @@
             this.BrandID.HeaderText = "Brand ID";
             this.BrandID.Name = "BrandID";
             this.BrandID.Visible = false;
-            this.BrandID.Width = 74;
             // 
             // BrandName
             // 
@@ -100,7 +98,7 @@
             this.BrandName.DataPropertyName = "brandname";
             this.BrandName.HeaderText = "Brand Name";
             this.BrandName.Name = "BrandName";
-            this.BrandName.Width = 91;
+            this.BrandName.Width = 84;
             // 
             // ProductName
             // 
@@ -108,6 +106,7 @@
             this.ProductName.DataPropertyName = "productname";
             this.ProductName.HeaderText = "Product Name";
             this.ProductName.Name = "ProductName";
+            this.ProductName.Width = 92;
             // 
             // pcatname
             // 
