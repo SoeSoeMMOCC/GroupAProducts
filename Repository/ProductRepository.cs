@@ -46,7 +46,7 @@ namespace GroupAProducts.Repository
                 "select row_number() over (ORDER BY prod.productid)as rownum,"+
                 "prod.productid,prod.productname,prodcat.pcatid,prodcat.pcatname,"+
                 "brand.brandid,brand.brandname,count(*) as total_qty from productdetail pdetail " +
-                "inner join products prod on pdetail.productid = prod.productid " +
+                "inner join products prod on pdetail.productid = prod.productid and pdetail.isactive=true " +
                 "inner join productcategory prodcat on prodcat.pcatid = prod.pcatid " +
                 "inner join brand brand on brand.brandid = prod.brandid " +
                 "where  prod.productid like @p_productid and prodcat.pcatid like @p_pcatid " +
@@ -86,7 +86,7 @@ namespace GroupAProducts.Repository
                 "prod.productname,prod.pcatid,prodcat.pcatname,prod.brandid,brand.brandname," +
                 "pdetail.sizeid,psize.sizes,pdetail.colorid,color.color " +
                 "from productdetail pdetail " +
-                "inner join products prod on pdetail.productid = prod.productid " +
+                "inner join products prod on pdetail.productid = prod.productid and pdetail.isactive=true " +
                 "inner join productcategory prodcat on prodcat.pcatid = prod.pcatid " +
                 "inner join brand brand on brand.brandid = prod.brandid " +
                 "inner join productcolor color on pdetail.colorid = color.colorid " +
@@ -119,7 +119,7 @@ namespace GroupAProducts.Repository
             error = "";
             List<ProductSize> psizelist = new List<ProductSize>();
             var sql =
-                "select sizeid,sizes from productsize where sizeid like @p_sizeid ; "
+                "select sizeid,sizes from productsize where sizeid like @p_sizeid and isactive=true ; "
             ;
             var parameters = new DynamicParameters();
             parameters.Add("p_sizeid", p_sizeid, GetDbType(""));
@@ -143,7 +143,7 @@ namespace GroupAProducts.Repository
             error = "";
             List<ProductColor> pcolorlist = new List<ProductColor>();
             var sql =
-                "select colorid,color from productcolor where colorid like @p_colorid ; "
+                "select colorid,color from productcolor where colorid like @p_colorid and isactive=true ; "
             ;
             var parameters = new DynamicParameters();
             parameters.Add("p_colorid", p_colorid, GetDbType(""));
@@ -167,7 +167,7 @@ namespace GroupAProducts.Repository
             error = "";
             List<Brand> pbrandlist = new List<Brand>();
             var sql =
-                "select brandid,brandname from brand where brandid like @p_brandid ; "
+                "select brandid,brandname from brand where brandid like @p_brandid and isactive=true ; "
             ;
             var parameters = new DynamicParameters();
             parameters.Add("p_brandid", p_brandid, GetDbType(""));
@@ -192,7 +192,7 @@ namespace GroupAProducts.Repository
             error = "";
             List<ProductCategory> pcategorylist = new List<ProductCategory>();
             var sql =
-                "select pcatid,pcatname from productcategory where pcatid like @p_catid ; "
+                "select pcatid,pcatname from productcategory where pcatid like @p_catid and isactive=true ; "
             ;
             var parameters = new DynamicParameters();
             parameters.Add("p_catid", p_catid, GetDbType(""));
@@ -219,7 +219,7 @@ namespace GroupAProducts.Repository
             List<Products> productlist = new List<Products>();
             var sql =
                 "select productid,productname from products where brandid like @p_brandid " +
-                "and pcatid like @p_pcatid and productid like @p_productid; "
+                "and pcatid like @p_pcatid and productid like @p_productid and isactive=true; "
             ;
             var parameters = new DynamicParameters();
             parameters.Add("p_productid", p_productid, GetDbType(""));
