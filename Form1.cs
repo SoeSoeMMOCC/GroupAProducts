@@ -23,6 +23,7 @@ namespace GroupAProducts
 
         private void button1_Click(object sender, EventArgs e)
         {
+            MessageBox.Show("Hello");
             try
             {
                 //String constring = "Server=127.0.0.1;Port=5432;Database=basicsql;User Id=postgres;Password=ssmroot;Timeout=15;";
@@ -65,6 +66,11 @@ namespace GroupAProducts
         private void fileSystemWatcher1_Changed(object sender, System.IO.FileSystemEventArgs e)
         {
 
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            MessageBox.Show("Hello");
         }
     }
 }
