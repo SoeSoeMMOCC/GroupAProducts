@@ -29,94 +29,111 @@
         private void InitializeComponent()
         {
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
-            this.tblDetail = new System.Windows.Forms.TableLayoutPanel();
-            this.lblBrandName = new System.Windows.Forms.Label();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.tblDetail.SuspendLayout();
+            this.lblbrand = new System.Windows.Forms.Label();
+            this.lblproduct = new System.Windows.Forms.Label();
+            this.lblCat = new System.Windows.Forms.Label();
+            this.lblColor = new System.Windows.Forms.Label();
+            this.lblSize = new System.Windows.Forms.Label();
+            this.lblPrice = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
-            // tblDetail
+            // lblbrand
             // 
-            this.tblDetail.ColumnCount = 2;
-            this.tblDetail.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.35587F));
-            this.tblDetail.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 49.64413F));
-            this.tblDetail.Controls.Add(this.lblBrandName, 0, 0);
-            this.tblDetail.Controls.Add(this.flowLayoutPanel1, 1, 2);
-            this.tblDetail.Controls.Add(this.label2, 0, 2);
-            this.tblDetail.Controls.Add(this.label1, 0, 1);
-            this.tblDetail.Location = new System.Drawing.Point(113, 35);
-            this.tblDetail.Name = "tblDetail";
-            this.tblDetail.RowCount = 7;
-            this.tblDetail.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 41.73228F));
-            this.tblDetail.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 58.26772F));
-            this.tblDetail.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 42F));
-            this.tblDetail.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tblDetail.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tblDetail.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tblDetail.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tblDetail.Size = new System.Drawing.Size(500, 200);
-            this.tblDetail.TabIndex = 0;
+            this.lblbrand.AutoSize = true;
+            this.lblbrand.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblbrand.Location = new System.Drawing.Point(86, 50);
+            this.lblbrand.Name = "lblbrand";
+            this.lblbrand.Size = new System.Drawing.Size(97, 17);
+            this.lblbrand.TabIndex = 0;
+            this.lblbrand.Text = "Brand Name";
             // 
-            // lblBrandName
+            // lblproduct
             // 
-            this.lblBrandName.AutoSize = true;
-            this.lblBrandName.Location = new System.Drawing.Point(10, 25);
-            this.lblBrandName.Margin = new System.Windows.Forms.Padding(10, 25, 3, 0);
-            this.lblBrandName.Name = "lblBrandName";
-            this.lblBrandName.Size = new System.Drawing.Size(66, 7);
-            this.lblBrandName.TabIndex = 0;
-            this.lblBrandName.Text = "Brand Name";
+            this.lblproduct.AutoSize = true;
+            this.lblproduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblproduct.Location = new System.Drawing.Point(86, 82);
+            this.lblproduct.Name = "lblproduct";
+            this.lblproduct.Size = new System.Drawing.Size(110, 17);
+            this.lblproduct.TabIndex = 1;
+            this.lblproduct.Text = "Product Name";
             // 
-            // flowLayoutPanel1
+            // lblCat
             // 
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(254, 80);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(200, 36);
-            this.flowLayoutPanel1.TabIndex = 1;
+            this.lblCat.AutoSize = true;
+            this.lblCat.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCat.Location = new System.Drawing.Point(86, 116);
+            this.lblCat.Name = "lblCat";
+            this.lblCat.Size = new System.Drawing.Size(119, 17);
+            this.lblCat.TabIndex = 2;
+            this.lblCat.Text = "Category Name";
             // 
-            // label1
+            // lblColor
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(10, 57);
-            this.label1.Margin = new System.Windows.Forms.Padding(10, 25, 3, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "label1";
+            this.lblColor.AutoSize = true;
+            this.lblColor.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblColor.Location = new System.Drawing.Point(86, 151);
+            this.lblColor.Name = "lblColor";
+            this.lblColor.Size = new System.Drawing.Size(46, 17);
+            this.lblColor.TabIndex = 3;
+            this.lblColor.Text = "Color";
             // 
-            // label2
+            // lblSize
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(10, 102);
-            this.label2.Margin = new System.Windows.Forms.Padding(10, 25, 3, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 13);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "label2";
+            this.lblSize.AutoSize = true;
+            this.lblSize.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSize.Location = new System.Drawing.Point(86, 191);
+            this.lblSize.Name = "lblSize";
+            this.lblSize.Size = new System.Drawing.Size(39, 17);
+            this.lblSize.TabIndex = 4;
+            this.lblSize.Text = "Size";
+            // 
+            // lblPrice
+            // 
+            this.lblPrice.AutoSize = true;
+            this.lblPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPrice.Location = new System.Drawing.Point(86, 230);
+            this.lblPrice.Name = "lblPrice";
+            this.lblPrice.Size = new System.Drawing.Size(45, 17);
+            this.lblPrice.TabIndex = 5;
+            this.lblPrice.Text = "Price";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(293, 50);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 21);
+            this.comboBox1.TabIndex = 6;
             // 
             // ProductDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.tblDetail);
+            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.lblPrice);
+            this.Controls.Add(this.lblSize);
+            this.Controls.Add(this.lblColor);
+            this.Controls.Add(this.lblCat);
+            this.Controls.Add(this.lblproduct);
+            this.Controls.Add(this.lblbrand);
             this.Name = "ProductDetails";
             this.Text = "ProductDetails";
-            this.tblDetail.ResumeLayout(false);
-            this.tblDetail.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
         private System.Windows.Forms.ColorDialog colorDialog1;
-        private System.Windows.Forms.TableLayoutPanel tblDetail;
-        private System.Windows.Forms.Label lblBrandName;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblbrand;
+        private System.Windows.Forms.Label lblproduct;
+        private System.Windows.Forms.Label lblCat;
+        private System.Windows.Forms.Label lblColor;
+        private System.Windows.Forms.Label lblSize;
+        private System.Windows.Forms.Label lblPrice;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }

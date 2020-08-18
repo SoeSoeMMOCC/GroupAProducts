@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.dGV_ProductCategory = new System.Windows.Forms.DataGridView();
-            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.Number = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DetailID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColorID = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -38,7 +37,9 @@
             this.Sizes = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Color = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
+            this.lblcat = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dGV_ProductCategory)).BeginInit();
             this.SuspendLayout();
             // 
@@ -54,9 +55,9 @@
             this.Sizes,
             this.Color,
             this.Price});
-            this.dGV_ProductCategory.Location = new System.Drawing.Point(92, 36);
+            this.dGV_ProductCategory.Location = new System.Drawing.Point(12, 81);
             this.dGV_ProductCategory.Name = "dGV_ProductCategory";
-            this.dGV_ProductCategory.Size = new System.Drawing.Size(639, 150);
+            this.dGV_ProductCategory.Size = new System.Drawing.Size(643, 470);
             this.dGV_ProductCategory.TabIndex = 0;
             this.dGV_ProductCategory.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dGV_ProductCategory_MouseDoubleClick);
             // 
@@ -109,16 +110,29 @@
             this.Price.Name = "Price";
             this.Price.ReadOnly = true;
             // 
+            // lblcat
+            // 
+            this.lblcat.AutoSize = true;
+            this.lblcat.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblcat.Location = new System.Drawing.Point(12, 28);
+            this.lblcat.Name = "lblcat";
+            this.lblcat.Size = new System.Drawing.Size(234, 31);
+            this.lblcat.TabIndex = 1;
+            this.lblcat.Text = "Product Serial List";
+            // 
             // ProductCategory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(784, 563);
+            this.Controls.Add(this.lblcat);
             this.Controls.Add(this.dGV_ProductCategory);
             this.Name = "ProductCategory";
             this.Text = "ProductCategory";
+            this.Load += new System.EventHandler(this.ProductCategory_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dGV_ProductCategory)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -135,5 +149,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Price;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.ColorDialog colorDialog1;
+        private System.Windows.Forms.Label lblcat;
     }
 }

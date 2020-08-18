@@ -35,7 +35,9 @@
             this.BrandID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BrandName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ProductName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pcatname = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lblStock = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dGV_ProductList)).BeginInit();
             this.SuspendLayout();
             // 
@@ -49,68 +51,105 @@
             this.BrandID,
             this.BrandName,
             this.ProductName,
+            this.pcatname,
             this.Qty});
-            this.dGV_ProductList.Location = new System.Drawing.Point(101, 70);
+            this.dGV_ProductList.Location = new System.Drawing.Point(12, 89);
             this.dGV_ProductList.Name = "dGV_ProductList";
-            this.dGV_ProductList.Size = new System.Drawing.Size(443, 185);
+            this.dGV_ProductList.Size = new System.Drawing.Size(470, 362);
             this.dGV_ProductList.TabIndex = 0;
             // 
             // rownum
             // 
+            this.rownum.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.rownum.DataPropertyName = "rownum";
             this.rownum.HeaderText = "No.";
             this.rownum.Name = "rownum";
             this.rownum.ReadOnly = true;
+            this.rownum.Width = 49;
             // 
             // ProductID
             // 
+            this.ProductID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.ProductID.DataPropertyName = "productid";
             this.ProductID.HeaderText = "Product ID";
             this.ProductID.Name = "ProductID";
             this.ProductID.Visible = false;
+            this.ProductID.Width = 83;
             // 
             // PCatID
             // 
+            this.PCatID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.PCatID.DataPropertyName = "pcatid";
             this.PCatID.HeaderText = "Category ID";
             this.PCatID.Name = "PCatID";
             this.PCatID.Visible = false;
+            this.PCatID.Width = 88;
             // 
             // BrandID
             // 
+            this.BrandID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.BrandID.DataPropertyName = "brandid";
             this.BrandID.HeaderText = "Brand ID";
             this.BrandID.Name = "BrandID";
             this.BrandID.Visible = false;
+            this.BrandID.Width = 74;
             // 
             // BrandName
             // 
+            this.BrandName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.BrandName.DataPropertyName = "brandname";
             this.BrandName.HeaderText = "Brand Name";
             this.BrandName.Name = "BrandName";
+            this.BrandName.Width = 91;
             // 
             // ProductName
             // 
+            this.ProductName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.ProductName.DataPropertyName = "productname";
             this.ProductName.HeaderText = "Product Name";
             this.ProductName.Name = "ProductName";
             // 
+            // pcatname
+            // 
+            this.pcatname.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.pcatname.DataPropertyName = "pcatname";
+            this.pcatname.HeaderText = "Category Name";
+            this.pcatname.Name = "pcatname";
+            this.pcatname.Width = 96;
+            // 
             // Qty
             // 
+            this.Qty.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.Qty.DataPropertyName = "total_qty";
             this.Qty.HeaderText = "Total Quantity";
             this.Qty.Name = "Qty";
+            this.Qty.Width = 90;
+            // 
+            // lblStock
+            // 
+            this.lblStock.AutoSize = true;
+            this.lblStock.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStock.Location = new System.Drawing.Point(12, 29);
+            this.lblStock.Name = "lblStock";
+            this.lblStock.Size = new System.Drawing.Size(255, 31);
+            this.lblStock.TabIndex = 1;
+            this.lblStock.Text = "Inventory-Stock List";
             // 
             // MainForm
             // 
+            this.AccessibleRole = System.Windows.Forms.AccessibleRole.ScrollBar;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(784, 463);
+            this.Controls.Add(this.lblStock);
             this.Controls.Add(this.dGV_ProductList);
+            this.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.Name = "MainForm";
             this.Text = "MainForm";
+            this.Load += new System.EventHandler(this.MainForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dGV_ProductList)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -123,6 +162,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn BrandID;
         private System.Windows.Forms.DataGridViewTextBoxColumn BrandName;
         private System.Windows.Forms.DataGridViewTextBoxColumn ProductName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pcatname;
         private System.Windows.Forms.DataGridViewTextBoxColumn Qty;
+        private System.Windows.Forms.Label lblStock;
     }
 }

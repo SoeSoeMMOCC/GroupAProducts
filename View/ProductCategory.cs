@@ -24,5 +24,10 @@ namespace GroupAProducts.View
             ProductDetails = new ProductDetails();
             ProductDetails.Show();           
         }
+
+        private void ProductCategory_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -18,8 +18,7 @@ namespace GroupAProducts.View
     {
         public MainForm()
         {
-            //InitializeComponent();
-            BindGrid();
+            InitializeComponent();           
         }
         private void BindGrid()
         {
@@ -66,16 +65,21 @@ namespace GroupAProducts.View
 
             try
             {
-                List<ProductModel> PorductList = new List<ProductModel>();
+                List<ProductModel> ProductList = new List<ProductModel>();
                 string error = "";
                 ProductRepository prodRepo = new ProductRepository();
-                PorductList = prodRepo.getProductListByCount("%", "%", "%",out error);                
-                dGV_ProductList.DataSource = PorductList;
+                ProductList = prodRepo.getProductListByCount("%", "%", "%",out error);                
+                dGV_ProductList.DataSource = ProductList;
             }
             catch(Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            BindGrid();
         }
     }
 }
