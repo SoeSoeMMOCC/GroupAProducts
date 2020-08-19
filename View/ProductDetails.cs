@@ -100,17 +100,17 @@ namespace GroupAProducts.View
                 }
                 else
                 {
-                    MessageBox.Show("No Data to show", "Information", MessageBoxButtons.YesNo);
+                    MessageBox.Show("No Data to show", "Information", MessageBoxButtons.OK);
                 }
             }
 
             else if (GA_Common.btnstatus == "CreateNew")
             {
                 //ProductDetailID
-                txtProDetailID.Text = "P1001";
+                txtProDetailID.Text = prodRepo.getProductNoSeries(out error);
 
                 //BarCode
-                txtBarcode.Text = "";
+                txtBarcode.Text = prodRepo.getProductNoSeries(out error);
 
                 //brandname                
                 cmbBrandName.SelectedIndex = 0;
@@ -128,7 +128,7 @@ namespace GroupAProducts.View
                 cmbSize.SelectedIndex = 0;
 
                 //Price
-                txtPrice.Text = "";
+                txtPrice.Text = "0";
             }               
                       
         }
@@ -270,6 +270,8 @@ namespace GroupAProducts.View
             if (cmbBrandName.SelectedValue != null && cmbCategoryName.SelectedValue!=null)
             {
                 List<Products> ObjProductNameByBrand = new List<Products>();
+                //cmbProductName.DataSource = ObjProductNameByBrand;
+                cmbProductName.ResetText();
                 ObjProductNameByBrand = prodRepo.getProducts("%", cmbCategoryName.SelectedValue.ToString(), cmbBrandName.SelectedValue.ToString(), out error);
                 cmbProductName.DataSource = ObjProductNameByBrand;
                 cmbProductName.ValueMember = "productid";
@@ -285,6 +287,8 @@ namespace GroupAProducts.View
             if (cmbBrandName.SelectedValue != null && cmbCategoryName.SelectedValue != null)
             {
                 List<Products> ObjProductNameByCat = new List<Products>();
+                //cmbProductName.DataSource = ObjProductNameByCat;
+                cmbProductName.ResetText();
                 ObjProductNameByCat = prodRepo.getProducts("%", cmbCategoryName.SelectedValue.ToString(), cmbBrandName.SelectedValue.ToString(), out error);
                 cmbProductName.DataSource = ObjProductNameByCat;
                 cmbProductName.ValueMember = "productid";
