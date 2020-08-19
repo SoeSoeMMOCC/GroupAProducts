@@ -102,5 +102,10 @@ namespace GroupAProducts.View
         {
 
         }
+
+        private void lblStock_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

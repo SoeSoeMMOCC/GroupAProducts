@@ -16,6 +16,7 @@ namespace GroupAProducts.View
     public partial class ProductCategory : Form
     {
         private ProductDetails ProductDetails;
+        private MainForm MainForm;
 
         public ProductCategory()
         {
@@ -59,6 +60,7 @@ namespace GroupAProducts.View
             }
             ProductDetails = new ProductDetails();
             ProductDetails.Show();
+            this.Close();
         }
 
         private void btnNew_Click(object sender, EventArgs e)
@@ -66,6 +68,14 @@ namespace GroupAProducts.View
             GA_Common.btnstatus = "CreateNew";
             ProductDetails = new ProductDetails();
             ProductDetails.Show();
+            this.Close();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            //MainForm = new MainForm();
+            //MainForm.Show();
         }
     }
 }
