@@ -107,7 +107,7 @@ namespace GroupAProducts.View
             else if (GA_Common.btnstatus == "CreateNew")
             {
                 //ProductDetailID
-                txtProDetailID.Text = GA_Common.objProductDetails.detailid;
+                txtProDetailID.Text = "P1001";
 
                 //BarCode
                 txtBarcode.Text = "";
@@ -168,6 +168,7 @@ namespace GroupAProducts.View
             if (GA_Common.btnstatus == "CreateNew")
             {
                 btnDelete.Visible = false;
+                refreshdata();
             }
             else if (GA_Common.btnstatus == "Edit")
             {
@@ -185,10 +186,10 @@ namespace GroupAProducts.View
         private void btnSave_Click(object sender, EventArgs e)
         {
             GA_Common.objProductDetails.detailid = txtProDetailID.Text;
-            GA_Common.objProductDetails.barcode = txtBarcode.Text;
-            GA_Common.objProductDetails.productid = cmbProductName.SelectedValue.ToString();
-            GA_Common.objProductDetails.brandid = cmbBrandName.SelectedValue.ToString();
-            GA_Common.objProductDetails.pcatid = cmbCategoryName.SelectedValue.ToString();
+            //GA_Common.objProductDetails.barcode = txtBarcode.Text;
+            //GA_Common.objProductDetails.productid = cmbProductName.SelectedValue.ToString();
+            //GA_Common.objProductDetails.brandid = cmbBrandName.SelectedValue.ToString();
+            //GA_Common.objProductDetails.pcatid = cmbCategoryName.SelectedValue.ToString();
             GA_Common.objProductDetails.colorid = cmbColor.SelectedValue.ToString();
             GA_Common.objProductDetails.sizeid = cmbSize.SelectedValue.ToString();
             GA_Common.objProductDetails.price = Convert.ToInt32(txtPrice.Text);
@@ -199,7 +200,46 @@ namespace GroupAProducts.View
                                  MessageBoxIcon.Question);
             if (DialogResult == DialogResult.Yes)
             {
-                //any function
+                //check barcode data
+                if (txtBarcode.Text == "")
+                    MessageBox.Show("Enter Barcode!",
+                                "Information", MessageBoxButtons.OK);
+                else
+                    GA_Common.objProductDetails.barcode = txtBarcode.Text;
+
+                //check product
+                if (cmbProductName.SelectedValue == null)
+                {
+                    MessageBox.Show("Select Product Name!",
+                                "Information", MessageBoxButtons.OK);
+                    return;
+                }
+                    
+                else
+                    GA_Common.objProductDetails.productid = cmbProductName.SelectedValue.ToString();
+
+                //check brand
+                if (cmbBrandName.SelectedValue == null)
+                {
+                    MessageBox.Show("Select Brand Name!",
+                                "Information", MessageBoxButtons.OK);
+                    return;
+                }
+                else
+                    GA_Common.objProductDetails.brandid = cmbBrandName.SelectedValue.ToString();
+
+                //check category
+                if (cmbCategoryName.SelectedValue == null )
+                {
+                    MessageBox.Show("Select Category Name!",
+                                "Information", MessageBoxButtons.OK);
+                    return;
+                }
+                else
+                    GA_Common.objProductDetails.pcatid = cmbCategoryName.SelectedValue.ToString();
+
+
+                //update data
                 ProductRepository prodRepoSave = new ProductRepository();
                 ReturnDataModel ObjSave = prodRepoSave.updateProductDetail(GA_Common.PDetailID,GA_Common.objProductDetails, out saveErr);
                 if (ObjSave.retStatus == true)
@@ -219,7 +259,7 @@ namespace GroupAProducts.View
                 //this.Close();
             }
 
-            refreshdata();
+            //refreshdata();
             ProductCategory = new ProductCategory();
             ProductCategory.Show();
 
@@ -230,12 +270,12 @@ namespace GroupAProducts.View
             if (cmbBrandName.SelectedValue != null && cmbCategoryName.SelectedValue!=null)
             {
                 List<Products> ObjProductNameByBrand = new List<Products>();
-                ObjProductNameByBrand = prodRepo.getProducts("%", cmbCategoryName.SelectedIndex.ToString(), cmbBrandName.SelectedIndex.ToString(), out error);
+                ObjProductNameByBrand = prodRepo.getProducts("%", cmbCategoryName.SelectedValue.ToString(), cmbBrandName.SelectedValue.ToString(), out error);
                 cmbProductName.DataSource = ObjProductNameByBrand;
                 cmbProductName.ValueMember = "productid";
                 cmbProductName.DisplayMember = "productname";
-                int productindex = ObjProductNameByBrand.FindIndex(x => x.productid == GA_Common.ProID);
-                cmbProductName.SelectedIndex = productindex;
+                int productindex = ObjProductNameByBrand.FindIndex(x => x.productid == GA_Common.ProID);                
+                cmbProductName.SelectedIndex = productindex;   
             }
             
         }
@@ -245,11 +285,11 @@ namespace GroupAProducts.View
             if (cmbBrandName.SelectedValue != null && cmbCategoryName.SelectedValue != null)
             {
                 List<Products> ObjProductNameByCat = new List<Products>();
-                ObjProductNameByCat = prodRepo.getProducts("%", cmbCategoryName.SelectedIndex.ToString(), cmbBrandName.SelectedIndex.ToString(), out error);
+                ObjProductNameByCat = prodRepo.getProducts("%", cmbCategoryName.SelectedValue.ToString(), cmbBrandName.SelectedValue.ToString(), out error);
                 cmbProductName.DataSource = ObjProductNameByCat;
                 cmbProductName.ValueMember = "productid";
                 cmbProductName.DisplayMember = "productname";
-                int productindex = ObjProductNameByCat.FindIndex(x => x.productid == GA_Common.ProID);
+                int productindex = ObjProductNameByCat.FindIndex(x => x.productid == GA_Common.ProID);                
                 cmbProductName.SelectedIndex = productindex;
             }
         }
