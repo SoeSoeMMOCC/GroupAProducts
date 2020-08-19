@@ -17,5 +17,7 @@ namespace GroupAProducts.Common
         public static ProductDetailModel objProductDetails;
 
         public static string btnstatus = null;
+
+        public static string PDetailAutoID = null;
     }
 }

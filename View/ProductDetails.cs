@@ -106,8 +106,10 @@ namespace GroupAProducts.View
 
             else if (GA_Common.btnstatus == "CreateNew")
             {
-                //ProductDetailID
-                txtProDetailID.Text = prodRepo.getProductNoSeries(out error);
+                //ProductDetailID                
+                GA_Common.PDetailAutoID = prodRepo.getProductNoSeries(out error);
+                txtProDetailID.Text = GA_Common.PDetailAutoID;
+                GA_Common.objProductDetails = new ProductDetailModel();
 
                 //BarCode
                 txtBarcode.Text = prodRepo.getProductNoSeries(out error);
@@ -167,7 +169,7 @@ namespace GroupAProducts.View
             this.StartPosition = FormStartPosition.CenterScreen;
             if (GA_Common.btnstatus == "CreateNew")
             {
-                btnDelete.Visible = false;
+                btnDelete.Visible = false; 
                 refreshdata();
             }
             else if (GA_Common.btnstatus == "Edit")
@@ -214,9 +216,13 @@ namespace GroupAProducts.View
                                 "Information", MessageBoxButtons.OK);
                     return;
                 }
-                    
+
                 else
+                {
                     GA_Common.objProductDetails.productid = cmbProductName.SelectedValue.ToString();
+                    GA_Common.ProID = cmbProductName.SelectedValue.ToString();                    
+
+                }
 
                 //check brand
                 if (cmbBrandName.SelectedValue == null)
@@ -226,17 +232,23 @@ namespace GroupAProducts.View
                     return;
                 }
                 else
+                {
                     GA_Common.objProductDetails.brandid = cmbBrandName.SelectedValue.ToString();
+                    GA_Common.BrandID = cmbBrandName.SelectedValue.ToString();
+                }
 
                 //check category
-                if (cmbCategoryName.SelectedValue == null )
+                if (cmbCategoryName.SelectedValue == null)
                 {
                     MessageBox.Show("Select Category Name!",
                                 "Information", MessageBoxButtons.OK);
                     return;
                 }
                 else
+                {
                     GA_Common.objProductDetails.pcatid = cmbCategoryName.SelectedValue.ToString();
+                    GA_Common.PCatID = cmbCategoryName.SelectedValue.ToString();
+                }
 
 
                 //update data
@@ -246,6 +258,8 @@ namespace GroupAProducts.View
                 {
                     MessageBox.Show("Successfully SAVE!",
                                 "Information", MessageBoxButtons.OK);
+                    //clear autoid textbox
+                    GA_Common.PDetailAutoID = null;
                 }
                 else
                 {
