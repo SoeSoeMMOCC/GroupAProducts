@@ -278,7 +278,7 @@ namespace GroupAProducts.Repository
             int iresult = 1;
             ReturnDataModel retdata = new ReturnDataModel();
 
-            var del_sql = "delete form productdetail where detailid = @p_detailid ; ";
+            var del_sql = "delete from productdetail where detailid = @p_detailid ; ";
             var parameters = new DynamicParameters();
             parameters.Add("p_detailid", p_detailid, GetDbType(""));            
             try

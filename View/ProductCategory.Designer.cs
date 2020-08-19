@@ -46,6 +46,7 @@
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.lblcat = new System.Windows.Forms.Label();
+            this.btnNew = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dGV_ProductCategory)).BeginInit();
             this.SuspendLayout();
             // 
@@ -68,9 +69,10 @@
             this.Sizes,
             this.Color,
             this.Price});
-            this.dGV_ProductCategory.Location = new System.Drawing.Point(12, 83);
+            this.dGV_ProductCategory.Location = new System.Drawing.Point(16, 102);
+            this.dGV_ProductCategory.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dGV_ProductCategory.Name = "dGV_ProductCategory";
-            this.dGV_ProductCategory.Size = new System.Drawing.Size(739, 468);
+            this.dGV_ProductCategory.Size = new System.Drawing.Size(1000, 465);
             this.dGV_ProductCategory.TabIndex = 0;
             this.dGV_ProductCategory.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dGV_ProductCategory_CellMouseClick);
             // 
@@ -80,7 +82,7 @@
             this.Number.DataPropertyName = "rownum";
             this.Number.HeaderText = "No.";
             this.Number.Name = "Number";
-            this.Number.Width = 49;
+            this.Number.Width = 55;
             // 
             // PcatID
             // 
@@ -144,7 +146,7 @@
             this.ProductName.HeaderText = "Product Name";
             this.ProductName.Name = "ProductName";
             this.ProductName.ReadOnly = true;
-            this.ProductName.Width = 92;
+            this.ProductName.Width = 113;
             // 
             // Barcode
             // 
@@ -153,7 +155,7 @@
             this.Barcode.HeaderText = "Barcode";
             this.Barcode.Name = "Barcode";
             this.Barcode.ReadOnly = true;
-            this.Barcode.Width = 72;
+            this.Barcode.Width = 86;
             // 
             // Sizes
             // 
@@ -162,7 +164,7 @@
             this.Sizes.HeaderText = "Size";
             this.Sizes.Name = "Sizes";
             this.Sizes.ReadOnly = true;
-            this.Sizes.Width = 52;
+            this.Sizes.Width = 60;
             // 
             // Color
             // 
@@ -171,7 +173,7 @@
             this.Color.HeaderText = "Color";
             this.Color.Name = "Color";
             this.Color.ReadOnly = true;
-            this.Color.Width = 56;
+            this.Color.Width = 66;
             // 
             // Price
             // 
@@ -180,25 +182,41 @@
             this.Price.HeaderText = "Price";
             this.Price.Name = "Price";
             this.Price.ReadOnly = true;
-            this.Price.Width = 56;
+            this.Price.Width = 65;
             // 
             // lblcat
             // 
             this.lblcat.AutoSize = true;
             this.lblcat.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblcat.Location = new System.Drawing.Point(12, 28);
+            this.lblcat.Location = new System.Drawing.Point(16, 34);
+            this.lblcat.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblcat.Name = "lblcat";
             this.lblcat.Size = new System.Drawing.Size(234, 31);
             this.lblcat.TabIndex = 1;
             this.lblcat.Text = "Product Serial List";
             // 
+            // btnNew
+            // 
+            this.btnNew.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNew.Location = new System.Drawing.Point(860, 610);
+            this.btnNew.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnNew.Name = "btnNew";
+            this.btnNew.Size = new System.Drawing.Size(156, 50);
+            this.btnNew.TabIndex = 2;
+            this.btnNew.Text = "Create New";
+            this.btnNew.UseVisualStyleBackColor = true;
+            this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
+            // 
             // ProductCategory
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(784, 563);
+            this.ClientSize = new System.Drawing.Size(1045, 693);
+            this.Controls.Add(this.btnNew);
             this.Controls.Add(this.lblcat);
             this.Controls.Add(this.dGV_ProductCategory);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "ProductCategory";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ProductCategory";
@@ -229,5 +247,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Sizes;
         private System.Windows.Forms.DataGridViewTextBoxColumn Color;
         private System.Windows.Forms.DataGridViewTextBoxColumn Price;
+        private System.Windows.Forms.Button btnNew;
     }
 }

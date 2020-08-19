@@ -48,14 +48,22 @@ namespace GroupAProducts.View
 
         private void dGV_ProductCategory_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
+            GA_Common.btnstatus = "Edit";
             if (e.RowIndex >= 0)
             {
                 DataGridViewRow row = dGV_ProductCategory.Rows[e.RowIndex];
                 GA_Common.ProID = Convert.ToString(row.Cells["productid"].Value);
                 GA_Common.PCatID = Convert.ToString(row.Cells["pcatid"].Value);
                 GA_Common.BrandID = Convert.ToString(row.Cells["brandid"].Value);
-                GA_Common.PDetailID = Convert.ToString(row.Cells["detailid"].Value);
+                GA_Common.PDetailID = Convert.ToString(row.Cells["detailid"].Value);               
             }
+            ProductDetails = new ProductDetails();
+            ProductDetails.Show();
+        }
+
+        private void btnNew_Click(object sender, EventArgs e)
+        {
+            GA_Common.btnstatus = "CreateNew";
             ProductDetails = new ProductDetails();
             ProductDetails.Show();
         }
