@@ -158,6 +158,7 @@
             this.txtPrice.Name = "txtPrice";
             this.txtPrice.Size = new System.Drawing.Size(165, 20);
             this.txtPrice.TabIndex = 11;
+            this.txtPrice.Text = "0";
             // 
             // btnSave
             // 
