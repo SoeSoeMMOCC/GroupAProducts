@@ -350,23 +350,23 @@ namespace GroupAProducts.Repository
         public string getProductNoSeries(out string error)
         {
             error = "";
-            string retn="";
-            ProductDetailModel productlist = new ProductDetailModel();
+            ProductDetailModel productdetail = new ProductDetailModel();
             var sql =
-                "select  * from productdetail order by detailid desc limit 1; ";
-            
-
+                "select  * from productdetail order by detailid desc limit 1; ";   
             try
             {
-                productlist = GADB().Query<ProductDetailModel>(sql).FirstOrDefault();
+                productdetail = GADB().Query<ProductDetailModel>(sql).FirstOrDefault();
             }
             catch (Exception e)
             {
                 //MMTSALE.WriteLog($"system error-{e.Message}");
                 error = e.Message;
             }
-
-            return retn;
+            string prefix = productdetail.detailid.Substring(0, 2);
+            int subcount = productdetail.detailid.Length - prefix.Length;
+            int detailid = Convert.ToInt32(productdetail.detailid.Substring(2, subcount));
+            string new_detailid = prefix + Convert.ToString(detailid + 1);
+            return new_detailid;
         }
     }
 }

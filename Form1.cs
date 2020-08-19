@@ -71,8 +71,12 @@ namespace GroupAProducts
         private void Form1_Load(object sender, EventArgs e)
         {
             string username = "so10158";
-            username = username.Substring(0,2);
-            MessageBox.Show(username);
+            string subusername1 = username.Substring(0,2);
+            int subcount = username.Length - subusername1.Length;
+            int detailid = Convert.ToInt32(username.Substring(2, subcount));
+            string subusername2 = Convert.ToString(detailid+1);
+            MessageBox.Show(subusername1);
+            MessageBox.Show(subusername2);
         }
     }
 }
