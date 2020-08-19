@@ -97,5 +97,10 @@ namespace GroupAProducts.View
             ProductCategoryList = new ProductCategory();
             ProductCategoryList.Show();
         }
+
+        private void dGV_ProductList_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

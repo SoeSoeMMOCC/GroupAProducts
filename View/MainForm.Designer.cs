@@ -57,6 +57,7 @@
             this.dGV_ProductList.Name = "dGV_ProductList";
             this.dGV_ProductList.Size = new System.Drawing.Size(470, 362);
             this.dGV_ProductList.TabIndex = 0;
+            this.dGV_ProductList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dGV_ProductList_CellContentClick);
             this.dGV_ProductList.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dGV_ProductList_CellMouseClick);
             // 
             // rownum

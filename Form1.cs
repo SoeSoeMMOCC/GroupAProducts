@@ -70,7 +70,9 @@ namespace GroupAProducts
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            MessageBox.Show("Hello");
+            string username = "so10158";
+            username = username.Substring(0,2);
+            MessageBox.Show(username);
         }
     }
 }

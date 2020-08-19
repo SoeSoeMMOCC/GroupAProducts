@@ -311,7 +311,7 @@ namespace GroupAProducts.Repository
             {
                 iresult = GADB().Execute(insert_sql, param: parameters);
                 iresult = 1;
-                goto returnData;
+                goto updateProdutsInfo;
             }
             catch (Exception e)
             {
@@ -320,11 +320,53 @@ namespace GroupAProducts.Repository
                 error = "Insertion failed.";
                 goto returnData;
             }
+            updateProdutsInfo:
+            var update_sql = "update products set brandid=@p_brandid,pcatid =@p_pcatid where productid=@p_productid; ";
+            parameters = new DynamicParameters();
+            parameters.Add("p_brandid", p_productdetail.brandid, GetDbType(""));
+            parameters.Add("p_pcatid", p_productdetail.pcatid, GetDbType(""));
+            parameters.Add("p_productid", p_productdetail.productid, GetDbType(""));
+
+            try
+            {
+                iresult = GADB().Execute(update_sql, param: parameters);
+                iresult = 1;
+                goto returnData;
+            }
+            catch (Exception e)
+            {
+                //MMTSALE.WriteLog($"system error-{e.Message}");
+                iresult = 0;
+                error = "Please Update Again!!Failed to Update Product Records.";
+                goto returnData;
+            }
+
             returnData:
             retdata.errorMsg = error;
             retdata.retStatus = (iresult == 1) ? true : false;
 
             return retdata;
+        }
+        public string getProductNoSeries(out string error)
+        {
+            error = "";
+            string retn="";
+            ProductDetailModel productlist = new ProductDetailModel();
+            var sql =
+                "select  * from productdetail order by detailid desc limit 1; ";
+            
+
+            try
+            {
+                productlist = GADB().Query<ProductDetailModel>(sql).FirstOrDefault();
+            }
+            catch (Exception e)
+            {
+                //MMTSALE.WriteLog($"system error-{e.Message}");
+                error = e.Message;
+            }
+
+            return retn;
         }
     }
 }
