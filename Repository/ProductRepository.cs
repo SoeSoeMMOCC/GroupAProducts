@@ -185,12 +185,12 @@ namespace GroupAProducts.Repository
             return pbrandlist;
         }
 
-        public List<ProductCategory> getProductCategory(
+        public List<CategoryModel> getProductCategory(
           string p_catid,
           out string error)
         {
             error = "";
-            List<ProductCategory> pcategorylist = new List<ProductCategory>();
+            List<CategoryModel> pcategorylist = new List<CategoryModel>();
             var sql =
                 "select pcatid,pcatname from productcategory where pcatid like @p_catid and isactive=true ; "
             ;
@@ -199,7 +199,7 @@ namespace GroupAProducts.Repository
 
             try
             {
-                pcategorylist = GADB().Query<ProductCategory>(sql, param: parameters).ToList();
+                pcategorylist = GADB().Query<CategoryModel>(sql, param: parameters).ToList();
             }
             catch (Exception e)
             {
@@ -278,7 +278,7 @@ namespace GroupAProducts.Repository
             int iresult = 1;
             ReturnDataModel retdata = new ReturnDataModel();
 
-            var del_sql = "delete form productdetail where detailid = @p_detailid ; ";
+            var del_sql = "delete from productdetail where detailid = @p_detailid ; ";
             var parameters = new DynamicParameters();
             parameters.Add("p_detailid", p_detailid, GetDbType(""));            
             try

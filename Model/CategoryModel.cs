@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GroupAProducts.Model
 {
-    public class ProductCategory
+    public class CategoryModel
     {
         //pcatid,pcatname
         public string pcatid { get; set; }
