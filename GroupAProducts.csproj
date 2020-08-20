@@ -112,6 +112,12 @@
     <Compile Include="View\CreateCategory.Designer.cs">
       <DependentUpon>CreateCategory.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\CreateProduct.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\CreateProduct.Designer.cs">
+      <DependentUpon>CreateProduct.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -145,6 +151,9 @@
     </Compile>
     <EmbeddedResource Include="View\CreateBrand.resx">
       <DependentUpon>CreateBrand.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\CreateProduct.resx">
+      <DependentUpon>CreateProduct.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
