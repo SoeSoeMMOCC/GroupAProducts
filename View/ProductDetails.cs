@@ -107,12 +107,12 @@ namespace GroupAProducts.View
             else if (GA_Common.btnstatus == "CreateNew")
             {
                 //ProductDetailID                
-                GA_Common.PDetailAutoID = prodRepo.getProductNoSeries(out error);
+                GA_Common.PDetailAutoID = prodRepo.getProductNoSeries("ProductDetail",out error);
                 txtProDetailID.Text = GA_Common.PDetailAutoID;
                 GA_Common.objProductDetails = new ProductDetailModel();
 
                 //BarCode
-                txtBarcode.Text = prodRepo.getProductNoSeries(out error);
+                txtBarcode.Text = GA_Common.PDetailAutoID; 
 
                 //brandname                
                 cmbBrandName.SelectedIndex = 0;
