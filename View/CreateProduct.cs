@@ -58,10 +58,15 @@ namespace GroupAProducts.View
             {
                 //check product name data
                 if (txtProductName.Text == "")
+                {
                     MessageBox.Show("Enter Product Name!",
                                 "Information", MessageBoxButtons.OK);
+                    return;
+                }
                 else
+                {
                     GA_Common.objProducts.productname = txtProductName.Text;
+                }
 
                 //check brand
                 if (cmbBrand.SelectedValue == null)

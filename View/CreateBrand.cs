@@ -43,10 +43,15 @@ namespace GroupAProducts.View
             {
                 //check product name data
                 if (txtBrandName.Text == "")
-                    MessageBox.Show("Enter Product Name!",
+                {
+                    MessageBox.Show("Enter Brand Name!",
                                 "Information", MessageBoxButtons.OK);
+                    return;
+                }
                 else
+                {
                     GA_Common.objBrand.brandname = txtBrandName.Text;
+                }
                 
                 ReturnDataModel ObjSaveBrand = prodRepo.saveBrand(GA_Common.objBrand, out error);
                 if (ObjSaveBrand.retStatus == true)

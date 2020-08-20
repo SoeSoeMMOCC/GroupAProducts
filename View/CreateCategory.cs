@@ -50,10 +50,15 @@ namespace GroupAProducts.View
             {
                 //check product Category name data
                 if (txtCatName.Text == "")
+                {
                     MessageBox.Show("Enter Product Category Name!",
                                 "Information", MessageBoxButtons.OK);
+                    return;
+                }
                 else
+                {
                     GA_Common.objProductCategory.pcatname = txtCatName.Text;
+                }
 
                
                 ReturnDataModel ObjSaveCategory = prodRepo.saveCategory(GA_Common.objProductCategory, out error);
