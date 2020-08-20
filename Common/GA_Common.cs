@@ -19,5 +19,7 @@ namespace GroupAProducts.Common
         public static string btnstatus = null;
 
         public static string PDetailAutoID = null;
+
+        public static string ProductAutoID = null;
     }
 }

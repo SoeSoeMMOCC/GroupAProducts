@@ -33,7 +33,7 @@
             this.lblCategoryName = new System.Windows.Forms.Label();
             this.lblProductName = new System.Windows.Forms.Label();
             this.txtProductID = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cmbBrand = new System.Windows.Forms.ComboBox();
             this.cmbCategory = new System.Windows.Forms.ComboBox();
             this.txtProductName = new System.Windows.Forms.TextBox();
             this.btnSave = new System.Windows.Forms.Button();
@@ -88,13 +88,13 @@
             this.txtProductID.Size = new System.Drawing.Size(165, 20);
             this.txtProductID.TabIndex = 4;
             // 
-            // comboBox1
+            // cmbBrand
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(196, 157);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(165, 21);
-            this.comboBox1.TabIndex = 5;
+            this.cmbBrand.FormattingEnabled = true;
+            this.cmbBrand.Location = new System.Drawing.Point(196, 157);
+            this.cmbBrand.Name = "cmbBrand";
+            this.cmbBrand.Size = new System.Drawing.Size(165, 21);
+            this.cmbBrand.TabIndex = 5;
             // 
             // cmbCategory
             // 
@@ -120,6 +120,7 @@
             this.btnSave.TabIndex = 8;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnCancel
             // 
@@ -140,7 +141,7 @@
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.txtProductName);
             this.Controls.Add(this.cmbCategory);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cmbBrand);
             this.Controls.Add(this.txtProductID);
             this.Controls.Add(this.lblProductName);
             this.Controls.Add(this.lblCategoryName);
@@ -148,6 +149,7 @@
             this.Controls.Add(this.lblProductid);
             this.Name = "CreateProduct";
             this.Text = "CreateProduct";
+            this.Load += new System.EventHandler(this.CreateProduct_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -160,7 +162,7 @@
         private System.Windows.Forms.Label lblCategoryName;
         private System.Windows.Forms.Label lblProductName;
         private System.Windows.Forms.TextBox txtProductID;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cmbBrand;
         private System.Windows.Forms.ComboBox cmbCategory;
         private System.Windows.Forms.TextBox txtProductName;
         private System.Windows.Forms.Button btnSave;
