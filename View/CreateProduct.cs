@@ -15,6 +15,7 @@ namespace GroupAProducts.View
 {
     public partial class CreateProduct : Form
     {
+        private MainForm MainForm;
         ProductRepository prodRepo = new ProductRepository();
         string error = "";
         public CreateProduct()
@@ -45,10 +46,10 @@ namespace GroupAProducts.View
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            string saveErr = "";
-            string productname = "";
-            string brand = "";
-            string category = "";
+            GA_Common.objProducts = new ProductModel();
+
+            GA_Common.objProducts.productid = GA_Common.ProductAutoID;
+
             DialogResult = MessageBox.Show("Are you sure to SAVE data",
                                 "Confirmation", MessageBoxButtons.YesNo,
                                  MessageBoxIcon.Question);
@@ -59,7 +60,7 @@ namespace GroupAProducts.View
                     MessageBox.Show("Enter Product Name!",
                                 "Information", MessageBoxButtons.OK);
                 else
-                    txtProductName.Text = txtProductName.Text;
+                    GA_Common.objProducts.productname = txtProductName.Text;
 
                 //check brand
                 if (cmbBrand.SelectedValue == null)
@@ -69,8 +70,8 @@ namespace GroupAProducts.View
                     return;
                 }
                 else
-                {                    
-                    brand = cmbBrand.SelectedValue.ToString();
+                {
+                    GA_Common.objProducts.brandid = cmbBrand.SelectedValue.ToString();
                 }
 
                 //check category
@@ -82,13 +83,32 @@ namespace GroupAProducts.View
                 }
                 else
                 {
-                    category = cmbCategory.SelectedValue.ToString();
+                    GA_Common.objProducts.pcatid = cmbCategory.SelectedValue.ToString();
+                }                   
+                             
+                ReturnDataModel ObjSaveProduct = prodRepo.saveProducts(GA_Common.objProducts, out error);
+                if (ObjSaveProduct.retStatus == true)
+                {
+                    MessageBox.Show("Successfully SAVE!",
+                                "Information", MessageBoxButtons.OK);
+                    //clear autoid textbox
+                    GA_Common.PDetailAutoID = null;
+                }
+                else
+                {
+                    MessageBox.Show(ObjSaveProduct.errorMsg,
+                                "Information", MessageBoxButtons.OK);
                 }
 
-                //save data
-
+            }
+            else if (DialogResult == DialogResult.No)
+            {
+                //this.Close();
             }
 
+            this.Close();
+            MainForm = new MainForm();
+            MainForm.Show();
         }
 
         private void CreateProduct_Load(object sender, EventArgs e)
