@@ -82,8 +82,6 @@ namespace GroupAProducts.View
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
-            MainForm = new MainForm();
-            MainForm.Show();
         }
     }
 }
