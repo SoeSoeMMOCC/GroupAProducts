@@ -38,7 +38,11 @@
             this.pcatname = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblStock = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dGV_ProductList)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // dGV_ProductList
@@ -76,6 +80,7 @@
             this.ProductID.HeaderText = "Product ID";
             this.ProductID.Name = "ProductID";
             this.ProductID.Visible = false;
+            this.ProductID.Width = 83;
             // 
             // PCatID
             // 
@@ -84,6 +89,7 @@
             this.PCatID.HeaderText = "Category ID";
             this.PCatID.Name = "PCatID";
             this.PCatID.Visible = false;
+            this.PCatID.Width = 88;
             // 
             // BrandID
             // 
@@ -92,6 +98,7 @@
             this.BrandID.HeaderText = "Brand ID";
             this.BrandID.Name = "BrandID";
             this.BrandID.Visible = false;
+            this.BrandID.Width = 74;
             // 
             // BrandName
             // 
@@ -129,18 +136,42 @@
             // 
             this.lblStock.AutoSize = true;
             this.lblStock.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStock.Location = new System.Drawing.Point(12, 29);
+            this.lblStock.Location = new System.Drawing.Point(102, 25);
             this.lblStock.Name = "lblStock";
-            this.lblStock.Size = new System.Drawing.Size(255, 31);
+            this.lblStock.Size = new System.Drawing.Size(269, 31);
             this.lblStock.TabIndex = 1;
-            this.lblStock.Text = "Inventory-Stock List";
+            this.lblStock.Text = "Inventory-Stocks List";
+            this.lblStock.Click += new System.EventHandler(this.lblStock_Click);
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::GroupAProducts.Properties.Resources.inventoryphoto;
+            this.pictureBox2.Location = new System.Drawing.Point(488, 89);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(284, 287);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 3;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::GroupAProducts.Properties.Resources.teamicon;
+            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(84, 71);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabStop = false;
             // 
             // MainForm
             // 
             this.AccessibleRole = System.Windows.Forms.AccessibleRole.ScrollBar;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(784, 463);
+            this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.lblStock);
             this.Controls.Add(this.dGV_ProductList);
             this.Cursor = System.Windows.Forms.Cursors.IBeam;
@@ -149,6 +180,8 @@
             this.Text = "MainForm";
             this.Load += new System.EventHandler(this.MainForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dGV_ProductList)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -166,5 +199,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn pcatname;
         private System.Windows.Forms.DataGridViewTextBoxColumn Qty;
         private System.Windows.Forms.Label lblStock;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }

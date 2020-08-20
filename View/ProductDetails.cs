@@ -149,7 +149,10 @@ namespace GroupAProducts.View
                 if(ObjDelete.retStatus == true)
                 {
                     MessageBox.Show("Successfully DELETE!",
-                                "Information", MessageBoxButtons.OK);                                
+                                "Information", MessageBoxButtons.OK);
+                    this.Close();
+                    ProductCategory = new ProductCategory();
+                    ProductCategory.Show();
                 }
                 else
                 {
@@ -181,6 +184,7 @@ namespace GroupAProducts.View
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
+            this.Close();
             ProductCategory = new ProductCategory();
             ProductCategory.Show();
         }
@@ -274,6 +278,7 @@ namespace GroupAProducts.View
             }
 
             //refreshdata();
+            this.Close();
             ProductCategory = new ProductCategory();
             ProductCategory.Show();
 
