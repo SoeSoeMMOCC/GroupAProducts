@@ -363,93 +363,78 @@ namespace GroupAProducts.Repository
             switch (p_table_name)
             {
                 case "ProductDetail":
-                    goto ProductDetailNoSeries;
+                    ProductDetailModel productdetail = new ProductDetailModel();
+                    sql =
+                        "select  * from productdetail order by detailid desc limit 1; ";
+                    try
+                    {
+                        productdetail = GADB().Query<ProductDetailModel>(sql).FirstOrDefault();
+                    }
+                    catch (Exception e)
+                    {
+                        //MMTSALE.WriteLog($"system error-{e.Message}");
+                        error = e.Message;
+                    }
+                    prefix = productdetail.detailid.Substring(0, 2);
+                    subcount = productdetail.detailid.Length - prefix.Length;
+                    detailid = Convert.ToInt32(productdetail.detailid.Substring(2, subcount));
+                    new_detailid = prefix + Convert.ToString(detailid + 1);
                     break;
                 case "Product":
-                    goto ProductNoSeries;
+                    ProductModel product = new ProductModel();
+                    sql =
+                        "select * from products order by productid desc limit 1; ";
+                    try
+                    {
+                        product = GADB().Query<ProductModel>(sql).FirstOrDefault();
+                    }
+                    catch (Exception e)
+                    {
+                        //MMTSALE.WriteLog($"system error-{e.Message}");
+                        error = e.Message;
+                    }
+                    prefix = product.productid.Substring(0, 1);
+                    subcount = product.productid.Length - prefix.Length;
+                    detailid = Convert.ToInt32(product.productid.Substring(1, subcount));
+                    new_detailid = prefix + Convert.ToString(detailid + 1);
                     break;
                 case "Brand":
-                    goto BrandNoseries;
+                    Brand branddetail = new Brand();
+                    sql =
+                        "select * from brand  order by brandid desc limit 1; ";
+                    try
+                    {
+                        branddetail = GADB().Query<Brand>(sql).FirstOrDefault();
+                    }
+                    catch (Exception e)
+                    {
+                        //MMTSALE.WriteLog($"system error-{e.Message}");
+                        error = e.Message;
+                    }
+                    prefix = branddetail.brandid.Substring(0, 1);
+                    subcount = branddetail.brandid.Length - prefix.Length;
+                    detailid = Convert.ToInt32(branddetail.brandid.Substring(1, subcount));
+                    new_detailid = prefix + Convert.ToString(detailid + 1);
                     break;
                 case "Category":
-                    goto CategoryNoSeries;
+                    CategoryModel catdetail = new CategoryModel();
+                    sql =
+                        "select * from productcategory order by pcatid desc limit 1; ";
+                    try
+                    {
+                        catdetail = GADB().Query<CategoryModel>(sql).FirstOrDefault();
+                    }
+                    catch (Exception e)
+                    {
+                        //MMTSALE.WriteLog($"system error-{e.Message}");
+                        error = e.Message;
+                    }
+                    prefix = catdetail.pcatid.Substring(0, 2);
+                    subcount = catdetail.pcatid.Length - prefix.Length;
+                    detailid = Convert.ToInt32(catdetail.pcatid.Substring(2, subcount));
+                    new_detailid = prefix + Convert.ToString(detailid + 1);
                     break;
             }
-                
-
-
-            ProductDetailNoSeries:
-            ProductDetailModel productdetail = new ProductDetailModel();
-            sql =
-                "select  * from productdetail order by detailid desc limit 1; ";   
-            try
-            {
-                productdetail = GADB().Query<ProductDetailModel>(sql).FirstOrDefault();
-            }
-            catch (Exception e)
-            {
-                //MMTSALE.WriteLog($"system error-{e.Message}");
-                error = e.Message;
-            }
-            prefix = productdetail.detailid.Substring(0, 2);
-            subcount = productdetail.detailid.Length - prefix.Length;
-            detailid = Convert.ToInt32(productdetail.detailid.Substring(2, subcount));
-            new_detailid = prefix + Convert.ToString(detailid + 1);
-            
-
-            BrandNoseries:
-            Brand branddetail = new Brand();
-            sql =
-                "select * from brand  order by brandid desc limit 1; ";
-            try
-            {
-                branddetail = GADB().Query<Brand>(sql).FirstOrDefault();
-            }
-            catch (Exception e)
-            {
-                //MMTSALE.WriteLog($"system error-{e.Message}");
-                error = e.Message;
-            }
-            prefix = branddetail.brandid.Substring(0, 1);
-            subcount = branddetail.brandid.Length - prefix.Length;
-            detailid = Convert.ToInt32(branddetail.brandid.Substring(1, subcount));
-            new_detailid = prefix + Convert.ToString(detailid + 1);
-
-            CategoryNoSeries:
-            CategoryModel catdetail = new CategoryModel();
-            sql =
-                "select * from productcategory order by pcatid desc limit 1; ";
-            try
-            {
-                catdetail = GADB().Query<CategoryModel>(sql).FirstOrDefault();
-            }
-            catch (Exception e)
-            {
-                //MMTSALE.WriteLog($"system error-{e.Message}");
-                error = e.Message;
-            }
-            prefix = catdetail.pcatid.Substring(0, 2);
-            subcount = catdetail.pcatid.Length - prefix.Length;
-            detailid = Convert.ToInt32(catdetail.pcatid.Substring(2, subcount));
-            new_detailid = prefix + Convert.ToString(detailid + 1);
-
-            ProductNoSeries:
-            ProductModel product = new ProductModel();
-            sql =
-                "select * from products order by productid desc limit 1; ";
-            try
-            {
-                product = GADB().Query<ProductModel>(sql).FirstOrDefault();
-            }
-            catch (Exception e)
-            {
-                //MMTSALE.WriteLog($"system error-{e.Message}");
-                error = e.Message;
-            }
-            prefix = product.productid.Substring(0, 1);
-            subcount = product.productid.Length - prefix.Length;
-            detailid = Convert.ToInt32(product.productid.Substring(1, subcount));
-            new_detailid = prefix + Convert.ToString(detailid + 1);
 
             return new_detailid;
         }

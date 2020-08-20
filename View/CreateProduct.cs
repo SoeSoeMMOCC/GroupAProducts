@@ -26,7 +26,7 @@ namespace GroupAProducts.View
         public void refreshdata()
         {
             //Auto Generate ProductID               
-            GA_Common.ProductAutoID = prodRepo.getProductNoSeries("Products", out error);
+            GA_Common.ProductAutoID = prodRepo.getProductNoSeries("Product", out error);
             txtProductID.Text = GA_Common.ProductAutoID;
 
             //BrandName

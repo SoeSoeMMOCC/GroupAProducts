@@ -32,7 +32,7 @@ namespace GroupAProducts.View
         public void refreshdata()
         {
             //ProCategoryAutoID                
-            GA_Common.ProCategoryAutoID = prodRepo.getProductNoSeries("ProductCategory", out error);
+            GA_Common.ProCategoryAutoID = prodRepo.getProductNoSeries("Category", out error);
             txtcatID.Text = GA_Common.ProCategoryAutoID;
 
         }
