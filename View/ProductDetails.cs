@@ -207,11 +207,17 @@ namespace GroupAProducts.View
             if (DialogResult == DialogResult.Yes)
             {
                 //check barcode data
-                if (txtBarcode.Text == "")
+                if (txtBarcode.Text == "" || txtBarcode.Text == null)
+                {
                     MessageBox.Show("Enter Barcode!",
                                 "Information", MessageBoxButtons.OK);
+                    txtBarcode.Focus();
+                    return;
+                }
                 else
+                {
                     GA_Common.objProductDetails.barcode = txtBarcode.Text;
+                }
 
                 //check product
                 if (cmbProductName.SelectedValue == null)

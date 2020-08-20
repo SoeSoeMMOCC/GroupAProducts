@@ -49,10 +49,11 @@ namespace GroupAProducts.View
             if (DialogResult == DialogResult.Yes)
             {
                 //check product Category name data
-                if (txtCatName.Text == "")
+                if (txtCatName.Text == "" || txtCatName.Text == null)
                 {
                     MessageBox.Show("Enter Product Category Name!",
                                 "Information", MessageBoxButtons.OK);
+                    txtCatName.Focus();
                     return;
                 }
                 else

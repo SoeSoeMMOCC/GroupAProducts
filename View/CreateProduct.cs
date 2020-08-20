@@ -57,10 +57,11 @@ namespace GroupAProducts.View
             if (DialogResult == DialogResult.Yes)
             {
                 //check product name data
-                if (txtProductName.Text == "")
+                if (txtProductName.Text == "" || txtProductName.Text == null)
                 {
                     MessageBox.Show("Enter Product Name!",
                                 "Information", MessageBoxButtons.OK);
+                    txtProductName.Focus();
                     return;
                 }
                 else

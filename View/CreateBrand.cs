@@ -42,10 +42,11 @@ namespace GroupAProducts.View
             if (DialogResult == DialogResult.Yes)
             {
                 //check product name data
-                if (txtBrandName.Text == "")
+                if (txtBrandName.Text == "" || txtBrandName.Text == null)
                 {
                     MessageBox.Show("Enter Brand Name!",
                                 "Information", MessageBoxButtons.OK);
+                    txtBrandName.Focus();
                     return;
                 }
                 else
