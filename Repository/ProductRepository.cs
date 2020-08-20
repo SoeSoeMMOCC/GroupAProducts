@@ -269,7 +269,7 @@ namespace GroupAProducts.Repository
             return retdata;
         }
 
-        public ReturnDataModel updateProductDetail(
+       public ReturnDataModel updateProductDetail(
        string p_detailid,
        ProductDetailModel p_productdetail,
        out string error)
@@ -347,11 +347,35 @@ namespace GroupAProducts.Repository
 
             return retdata;
         }
-        public string getProductNoSeries(out string error)
+        public string getProductNoSeries(string p_table_name,out string error)
         {
             error = "";
+            string new_detailid = "";
+            var sql = "";
+            string prefix = "";
+            int detailid;
+            int subcount;
+            switch (p_table_name)
+            {
+                case "ProductDetail":
+                    goto ProductDetailNoSeries;
+                    break;
+                case "Product":
+                    goto ProductNoSeries;
+                    break;
+                case "Brand":
+                    goto BrandNoseries;
+                    break;
+                case "Category":
+                    goto CategoryNoSeries;
+                    break;
+            }
+                
+
+
+            ProductDetailNoSeries:
             ProductDetailModel productdetail = new ProductDetailModel();
-            var sql =
+            sql =
                 "select  * from productdetail order by detailid desc limit 1; ";   
             try
             {
@@ -362,11 +386,172 @@ namespace GroupAProducts.Repository
                 //MMTSALE.WriteLog($"system error-{e.Message}");
                 error = e.Message;
             }
-            string prefix = productdetail.detailid.Substring(0, 2);
-            int subcount = productdetail.detailid.Length - prefix.Length;
-            int detailid = Convert.ToInt32(productdetail.detailid.Substring(2, subcount));
-            string new_detailid = prefix + Convert.ToString(detailid + 1);
+            prefix = productdetail.detailid.Substring(0, 2);
+            subcount = productdetail.detailid.Length - prefix.Length;
+            detailid = Convert.ToInt32(productdetail.detailid.Substring(2, subcount));
+            new_detailid = prefix + Convert.ToString(detailid + 1);
+            
+
+            BrandNoseries:
+            Brand branddetail = new Brand();
+            sql =
+                "select * from brand  order by brandid desc limit 1; ";
+            try
+            {
+                branddetail = GADB().Query<Brand>(sql).FirstOrDefault();
+            }
+            catch (Exception e)
+            {
+                //MMTSALE.WriteLog($"system error-{e.Message}");
+                error = e.Message;
+            }
+            prefix = branddetail.brandid.Substring(0, 1);
+            subcount = branddetail.brandid.Length - prefix.Length;
+            detailid = Convert.ToInt32(branddetail.brandid.Substring(1, subcount));
+            new_detailid = prefix + Convert.ToString(detailid + 1);
+
+            CategoryNoSeries:
+            CategoryModel catdetail = new CategoryModel();
+            sql =
+                "select * from productcategory order by pcatid desc limit 1; ";
+            try
+            {
+                catdetail = GADB().Query<CategoryModel>(sql).FirstOrDefault();
+            }
+            catch (Exception e)
+            {
+                //MMTSALE.WriteLog($"system error-{e.Message}");
+                error = e.Message;
+            }
+            prefix = catdetail.pcatid.Substring(0, 2);
+            subcount = catdetail.pcatid.Length - prefix.Length;
+            detailid = Convert.ToInt32(catdetail.pcatid.Substring(2, subcount));
+            new_detailid = prefix + Convert.ToString(detailid + 1);
+
+            ProductNoSeries:
+            ProductModel product = new ProductModel();
+            sql =
+                "select * from products order by productid desc limit 1; ";
+            try
+            {
+                product = GADB().Query<ProductModel>(sql).FirstOrDefault();
+            }
+            catch (Exception e)
+            {
+                //MMTSALE.WriteLog($"system error-{e.Message}");
+                error = e.Message;
+            }
+            prefix = product.productid.Substring(0, 1);
+            subcount = product.productid.Length - prefix.Length;
+            detailid = Convert.ToInt32(product.productid.Substring(1, subcount));
+            new_detailid = prefix + Convert.ToString(detailid + 1);
+
             return new_detailid;
+        }
+
+        public ReturnDataModel saveProducts(
+        ProductModel p_product,
+        out string error)
+        {
+            error = "";
+            int iresult = 1;
+            ReturnDataModel retdata = new ReturnDataModel();   
+            var insert_sql = "INSERT INTO products(productid, productname, isactive, ts, brandid, pcatid) " +
+                "VALUES(@p_productid,@p_productname,@p_isactive,@p_ts,@p_brandid,@p_pcatid); ";
+            var parameters = new DynamicParameters();
+            parameters.Add("p_productid", p_product.productid, GetDbType(""));
+            parameters.Add("p_productname", p_product.productname, GetDbType(""));
+            parameters.Add("p_isactive", true, GetDbType(true));
+            parameters.Add("p_ts", DateTime.Now, GetDbType(DateTime.Now));
+            parameters.Add("p_brandid", p_product.brandid, GetDbType(""));
+            parameters.Add("p_pcatid", p_product.pcatid, GetDbType(""));
+            try
+            {
+                iresult = GADB().Execute(insert_sql, param: parameters);
+                iresult = 1;
+                goto returnData;
+            }
+            catch (Exception e)
+            {
+                //MMTSALE.WriteLog($"system error-{e.Message}");
+                iresult = 0;
+                error = "Insertion failed.";
+                goto returnData;
+            }           
+
+            returnData:
+            retdata.errorMsg = error;
+            retdata.retStatus = (iresult == 1) ? true : false;
+
+            return retdata;
+        }
+        public ReturnDataModel saveBrand(
+        Brand p_brand,
+        out string error)
+        {
+            error = "";
+            int iresult = 1;
+            ReturnDataModel retdata = new ReturnDataModel();
+            var insert_sql = "INSERT INTO brand(brandid, brandname, isactive, ts) " +
+                "VALUES (@p_branid,@p_brandname,@p_isactive,@p_ts);";
+            var parameters = new DynamicParameters();
+            parameters.Add("p_branid", p_brand.brandid, GetDbType(""));
+            parameters.Add("p_brandname", p_brand.brandname, GetDbType(""));
+            parameters.Add("p_isactive", true, GetDbType(true));
+            parameters.Add("p_ts", DateTime.Now, GetDbType(DateTime.Now));
+            try
+            {
+                iresult = GADB().Execute(insert_sql, param: parameters);
+                iresult = 1;
+                goto returnData;
+            }
+            catch (Exception e)
+            {
+                //MMTSALE.WriteLog($"system error-{e.Message}");
+                iresult = 0;
+                error = "Insertion failed.";
+                goto returnData;
+            }
+
+            returnData:
+            retdata.errorMsg = error;
+            retdata.retStatus = (iresult == 1) ? true : false;
+
+            return retdata;
+        }
+        public ReturnDataModel saveCategory(
+        CategoryModel p_category,
+        out string error)
+        {
+            error = "";
+            int iresult = 1;
+            ReturnDataModel retdata = new ReturnDataModel();
+            var insert_sql = "INSERT INTO public.productcategory(pcatid, pcatname, isactive, ts) " +
+                "VALUES (@p_catid,@p_catname,@p_isactive,@p_ts);";
+            var parameters = new DynamicParameters();
+            parameters.Add("p_catid", p_category.pcatid, GetDbType(""));
+            parameters.Add("p_catname", p_category.pcatname, GetDbType(""));
+            parameters.Add("p_isactive", true, GetDbType(true));
+            parameters.Add("p_ts", DateTime.Now, GetDbType(DateTime.Now));
+            try
+            {
+                iresult = GADB().Execute(insert_sql, param: parameters);
+                iresult = 1;
+                goto returnData;
+            }
+            catch (Exception e)
+            {
+                //MMTSALE.WriteLog($"system error-{e.Message}");
+                iresult = 0;
+                error = "Insertion failed.";
+                goto returnData;
+            }
+
+            returnData:
+            retdata.errorMsg = error;
+            retdata.retStatus = (iresult == 1) ? true : false;
+
+            return retdata;
         }
     }
 }
