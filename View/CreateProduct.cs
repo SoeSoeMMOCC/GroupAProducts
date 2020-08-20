@@ -107,9 +107,7 @@ namespace GroupAProducts.View
                 //this.Close();
             }
 
-            this.Close();
-            MainForm = new MainForm();
-            MainForm.Show();
+            this.Close();            
         }
 
         private void CreateProduct_Load(object sender, EventArgs e)
