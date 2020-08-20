@@ -29,10 +29,6 @@
         private void InitializeComponent()
         {
             this.dGV_ProductList = new System.Windows.Forms.DataGridView();
-            this.lblStock = new System.Windows.Forms.Label();
-            this.btnRefresh = new System.Windows.Forms.Button();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.rownum = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ProductID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PCatID = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -41,6 +37,13 @@
             this.pcatname = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ProductName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TotalQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lblStock = new System.Windows.Forms.Label();
+            this.btnRefresh = new System.Windows.Forms.Button();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnNewProduct = new System.Windows.Forms.Button();
+            this.btnNewBrand = new System.Windows.Forms.Button();
+            this.btnNewCat = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dGV_ProductList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -65,6 +68,65 @@
             this.dGV_ProductList.TabIndex = 0;
             this.dGV_ProductList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dGV_ProductList_CellContentClick);
             this.dGV_ProductList.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dGV_ProductList_CellMouseClick);
+            // 
+            // rownum
+            // 
+            this.rownum.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.rownum.DataPropertyName = "rownum";
+            this.rownum.HeaderText = "No.";
+            this.rownum.Name = "rownum";
+            this.rownum.ReadOnly = true;
+            this.rownum.Width = 49;
+            // 
+            // ProductID
+            // 
+            this.ProductID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.ProductID.DataPropertyName = "productid";
+            this.ProductID.HeaderText = "Product ID";
+            this.ProductID.Name = "ProductID";
+            this.ProductID.Visible = false;
+            // 
+            // PCatID
+            // 
+            this.PCatID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.PCatID.DataPropertyName = "pcatid";
+            this.PCatID.HeaderText = "Category ID";
+            this.PCatID.Name = "PCatID";
+            this.PCatID.Visible = false;
+            // 
+            // BrandID
+            // 
+            this.BrandID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.BrandID.DataPropertyName = "brandid";
+            this.BrandID.HeaderText = "Brand ID";
+            this.BrandID.Name = "BrandID";
+            this.BrandID.Visible = false;
+            // 
+            // BrandName
+            // 
+            this.BrandName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.BrandName.DataPropertyName = "brandname";
+            this.BrandName.HeaderText = "Brand Name";
+            this.BrandName.Name = "BrandName";
+            this.BrandName.Width = 84;
+            // 
+            // pcatname
+            // 
+            this.pcatname.DataPropertyName = "pcatname";
+            this.pcatname.HeaderText = "Category Name";
+            this.pcatname.Name = "pcatname";
+            // 
+            // ProductName
+            // 
+            this.ProductName.DataPropertyName = "productname";
+            this.ProductName.HeaderText = "Product Name";
+            this.ProductName.Name = "ProductName";
+            // 
+            // TotalQuantity
+            // 
+            this.TotalQuantity.DataPropertyName = "total_qty";
+            this.TotalQuantity.HeaderText = "Total Quantity";
+            this.TotalQuantity.Name = "TotalQuantity";
             // 
             // lblStock
             // 
@@ -109,67 +171,35 @@
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
             // 
-            // rownum
+            // btnNewProduct
             // 
-            this.rownum.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.rownum.DataPropertyName = "rownum";
-            this.rownum.HeaderText = "No.";
-            this.rownum.Name = "rownum";
-            this.rownum.ReadOnly = true;
-            this.rownum.Width = 49;
+            this.btnNewProduct.Location = new System.Drawing.Point(93, 112);
+            this.btnNewProduct.Name = "btnNewProduct";
+            this.btnNewProduct.Size = new System.Drawing.Size(117, 23);
+            this.btnNewProduct.TabIndex = 5;
+            this.btnNewProduct.Text = "Create Product";
+            this.btnNewProduct.UseVisualStyleBackColor = true;
+            this.btnNewProduct.Click += new System.EventHandler(this.btnNewProduct_Click);
             // 
-            // ProductID
+            // btnNewBrand
             // 
-            this.ProductID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.ProductID.DataPropertyName = "productid";
-            this.ProductID.HeaderText = "Product ID";
-            this.ProductID.Name = "ProductID";
-            this.ProductID.Visible = false;
-            this.ProductID.Width = 83;
+            this.btnNewBrand.Location = new System.Drawing.Point(216, 112);
+            this.btnNewBrand.Name = "btnNewBrand";
+            this.btnNewBrand.Size = new System.Drawing.Size(109, 23);
+            this.btnNewBrand.TabIndex = 6;
+            this.btnNewBrand.Text = "Create Brand";
+            this.btnNewBrand.UseVisualStyleBackColor = true;
+            this.btnNewBrand.Click += new System.EventHandler(this.btnNewBrand_Click);
             // 
-            // PCatID
+            // btnNewCat
             // 
-            this.PCatID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.PCatID.DataPropertyName = "pcatid";
-            this.PCatID.HeaderText = "Category ID";
-            this.PCatID.Name = "PCatID";
-            this.PCatID.Visible = false;
-            this.PCatID.Width = 88;
-            // 
-            // BrandID
-            // 
-            this.BrandID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.BrandID.DataPropertyName = "brandid";
-            this.BrandID.HeaderText = "Brand ID";
-            this.BrandID.Name = "BrandID";
-            this.BrandID.Visible = false;
-            this.BrandID.Width = 74;
-            // 
-            // BrandName
-            // 
-            this.BrandName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.BrandName.DataPropertyName = "brandname";
-            this.BrandName.HeaderText = "Brand Name";
-            this.BrandName.Name = "BrandName";
-            this.BrandName.Width = 91;
-            // 
-            // pcatname
-            // 
-            this.pcatname.DataPropertyName = "pcatname";
-            this.pcatname.HeaderText = "Category Name";
-            this.pcatname.Name = "pcatname";
-            // 
-            // ProductName
-            // 
-            this.ProductName.DataPropertyName = "productname";
-            this.ProductName.HeaderText = "Product Name";
-            this.ProductName.Name = "ProductName";
-            // 
-            // TotalQuantity
-            // 
-            this.TotalQuantity.DataPropertyName = "total_qty";
-            this.TotalQuantity.HeaderText = "Total Quantity";
-            this.TotalQuantity.Name = "TotalQuantity";
+            this.btnNewCat.Location = new System.Drawing.Point(331, 112);
+            this.btnNewCat.Name = "btnNewCat";
+            this.btnNewCat.Size = new System.Drawing.Size(120, 23);
+            this.btnNewCat.TabIndex = 7;
+            this.btnNewCat.Text = "Create Category";
+            this.btnNewCat.UseVisualStyleBackColor = true;
+            this.btnNewCat.Click += new System.EventHandler(this.btnNewCat_Click);
             // 
             // MainForm
             // 
@@ -178,6 +208,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(784, 504);
+            this.Controls.Add(this.btnNewCat);
+            this.Controls.Add(this.btnNewBrand);
+            this.Controls.Add(this.btnNewProduct);
             this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
@@ -211,5 +244,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn pcatname;
         private System.Windows.Forms.DataGridViewTextBoxColumn ProductName;
         private System.Windows.Forms.DataGridViewTextBoxColumn TotalQuantity;
+        private System.Windows.Forms.Button btnNewProduct;
+        private System.Windows.Forms.Button btnNewBrand;
+        private System.Windows.Forms.Button btnNewCat;
     }
 }

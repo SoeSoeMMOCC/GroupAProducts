@@ -48,7 +48,6 @@
             this.lblbrandID.Size = new System.Drawing.Size(71, 17);
             this.lblbrandID.TabIndex = 0;
             this.lblbrandID.Text = "Brand ID";
-            this.lblbrandID.Click += new System.EventHandler(this.label1_Click);
             // 
             // lblbrandName
             // 
@@ -64,6 +63,7 @@
             // 
             this.txtBrandID.Location = new System.Drawing.Point(232, 113);
             this.txtBrandID.Name = "txtBrandID";
+            this.txtBrandID.ReadOnly = true;
             this.txtBrandID.Size = new System.Drawing.Size(200, 20);
             this.txtBrandID.TabIndex = 2;
             // 
@@ -83,6 +83,7 @@
             this.btnSave.TabIndex = 13;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnCancel
             // 
@@ -93,6 +94,7 @@
             this.btnCancel.TabIndex = 14;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // pictureBox1
             // 
@@ -130,6 +132,7 @@
             this.Controls.Add(this.lblbrandID);
             this.Name = "CreateBrand";
             this.Text = "CreateBrand";
+            this.Load += new System.EventHandler(this.CreateBrand_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

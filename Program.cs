@@ -17,7 +17,7 @@ namespace GroupAProducts
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new CreateProduct());
+            Application.Run(new MainForm());
         }
     }
 }

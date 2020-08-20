@@ -19,6 +19,10 @@ namespace GroupAProducts.View
     public partial class MainForm : Form
     {
         private ProductCategory ProductCategoryList;
+        private CreateProduct CreateProduct;
+        private CreateBrand CreateBrand;
+        private CreateCategory CreateCategory;
+
         public MainForm()
         {
             InitializeComponent();           
@@ -75,6 +79,27 @@ namespace GroupAProducts.View
         private void btnRefresh_Click(object sender, EventArgs e)
         {
             BindGrid();
+        }
+
+        //create new product
+        private void btnNewProduct_Click(object sender, EventArgs e)
+        {
+            CreateProduct = new CreateProduct();
+            CreateProduct.Show();
+        }
+
+        //create new brand
+        private void btnNewBrand_Click(object sender, EventArgs e)
+        {
+            CreateBrand = new CreateBrand();
+            CreateBrand.Show();
+        }
+
+        //create new categroy
+        private void btnNewCat_Click(object sender, EventArgs e)
+        {
+            CreateCategory = new CreateCategory();
+            CreateCategory.Show();
         }
     }
 }

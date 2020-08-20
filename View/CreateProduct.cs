@@ -25,7 +25,7 @@ namespace GroupAProducts.View
 
         public void refreshdata()
         {
-            //ProductDetailID                
+            //Auto Generate ProductID               
             GA_Common.ProductAutoID = prodRepo.getProductNoSeries("Products", out error);
             txtProductID.Text = GA_Common.ProductAutoID;
 
@@ -44,6 +44,7 @@ namespace GroupAProducts.View
             cmbCategory.DisplayMember = "pcatname";
         }
 
+        //save data to product table
         private void btnSave_Click(object sender, EventArgs e)
         {
             GA_Common.objProducts = new ProductModel();
@@ -92,7 +93,7 @@ namespace GroupAProducts.View
                     MessageBox.Show("Successfully SAVE!",
                                 "Information", MessageBoxButtons.OK);
                     //clear autoid textbox
-                    GA_Common.PDetailAutoID = null;
+                    GA_Common.ProductAutoID = null;
                 }
                 else
                 {
@@ -114,6 +115,14 @@ namespace GroupAProducts.View
         private void CreateProduct_Load(object sender, EventArgs e)
         {
             refreshdata();
+        }
+
+        //close current form and goback to main form
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            MainForm = new MainForm();
+            MainForm.Show();
         }
     }
 }
