@@ -27,5 +27,7 @@ namespace GroupAProducts.Common
         public static string ProductAutoID = null; //autoid for product
 
         public static string BrandAutoID = null; //autoid for brand
+
+        public static string ProCategoryAutoID { get; internal set; }
     }
 }
