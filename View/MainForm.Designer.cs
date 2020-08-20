@@ -41,12 +41,12 @@
             this.btnRefresh = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.btnNewProduct = new System.Windows.Forms.Button();
+            this.btnNewBrand = new System.Windows.Forms.Button();
+            this.btnNewCat = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dGV_ProductList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
             // dGV_ProductList
@@ -171,26 +171,35 @@
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
             // 
-            // label1
+            // btnNewProduct
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(102, 25);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(269, 31);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Inventory-Stocks List";
-            this.label1.Click += new System.EventHandler(this.lblStock_Click);
+            this.btnNewProduct.Location = new System.Drawing.Point(93, 112);
+            this.btnNewProduct.Name = "btnNewProduct";
+            this.btnNewProduct.Size = new System.Drawing.Size(117, 23);
+            this.btnNewProduct.TabIndex = 5;
+            this.btnNewProduct.Text = "Create Product";
+            this.btnNewProduct.UseVisualStyleBackColor = true;
+            this.btnNewProduct.Click += new System.EventHandler(this.btnNewProduct_Click);
             // 
-            // pictureBox3
+            // btnNewBrand
             // 
-            this.pictureBox3.Image = global::GroupAProducts.Properties.Resources.teamicon;
-            this.pictureBox3.Location = new System.Drawing.Point(12, 12);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(84, 71);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 2;
-            this.pictureBox3.TabStop = false;
+            this.btnNewBrand.Location = new System.Drawing.Point(216, 112);
+            this.btnNewBrand.Name = "btnNewBrand";
+            this.btnNewBrand.Size = new System.Drawing.Size(109, 23);
+            this.btnNewBrand.TabIndex = 6;
+            this.btnNewBrand.Text = "Create Brand";
+            this.btnNewBrand.UseVisualStyleBackColor = true;
+            this.btnNewBrand.Click += new System.EventHandler(this.btnNewBrand_Click);
+            // 
+            // btnNewCat
+            // 
+            this.btnNewCat.Location = new System.Drawing.Point(331, 112);
+            this.btnNewCat.Name = "btnNewCat";
+            this.btnNewCat.Size = new System.Drawing.Size(120, 23);
+            this.btnNewCat.TabIndex = 7;
+            this.btnNewCat.Text = "Create Category";
+            this.btnNewCat.UseVisualStyleBackColor = true;
+            this.btnNewCat.Click += new System.EventHandler(this.btnNewCat_Click);
             // 
             // MainForm
             // 
@@ -199,10 +208,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(784, 504);
+            this.Controls.Add(this.btnNewCat);
+            this.Controls.Add(this.btnNewBrand);
+            this.Controls.Add(this.btnNewProduct);
             this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.pictureBox3);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.lblStock);
             this.Controls.Add(this.dGV_ProductList);
@@ -214,7 +224,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dGV_ProductList)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -235,7 +244,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn pcatname;
         private System.Windows.Forms.DataGridViewTextBoxColumn ProductName;
         private System.Windows.Forms.DataGridViewTextBoxColumn TotalQuantity;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.Button btnNewProduct;
+        private System.Windows.Forms.Button btnNewBrand;
+        private System.Windows.Forms.Button btnNewCat;
     }
 }

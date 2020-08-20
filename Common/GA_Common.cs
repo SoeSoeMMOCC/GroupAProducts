@@ -14,18 +14,18 @@ namespace GroupAProducts.Common
         public static string PCatID = null;
         public static string PDetailID = null;
 
-        public static ProductDetailModel objProductDetails;
+        public static ProductDetailModel objProductDetails; //create productdetails object
 
-        public static ProductModel objProducts;
+        public static ProductModel objProducts; //create product object
 
-        public static CategoryModel objProductCategory;
+        public static Brand objBrand; //create brand object
 
         public static string btnstatus = null;
 
-        public static string PDetailAutoID = null;
+        public static string PDetailAutoID = null; //autoid for productdetails
 
-        public static string ProductAutoID = null;
+        public static string ProductAutoID = null; //autoid for product
 
-        public static string ProCategoryAutoID = null;
+        public static string BrandAutoID = null; //autoid for brand
     }
 }
