@@ -30,8 +30,8 @@
         {
             this.lblcatID = new System.Windows.Forms.Label();
             this.lblcatName = new System.Windows.Forms.Label();
-            this.txtBrandID = new System.Windows.Forms.TextBox();
-            this.txtBrandName = new System.Windows.Forms.TextBox();
+            this.txtcatID = new System.Windows.Forms.TextBox();
+            this.txtCatName = new System.Windows.Forms.TextBox();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -59,19 +59,20 @@
             this.lblcatName.TabIndex = 2;
             this.lblcatName.Text = "Category Name";
             // 
-            // txtBrandID
+            // txtcatID
             // 
-            this.txtBrandID.Location = new System.Drawing.Point(245, 122);
-            this.txtBrandID.Name = "txtBrandID";
-            this.txtBrandID.Size = new System.Drawing.Size(200, 20);
-            this.txtBrandID.TabIndex = 3;
+            this.txtcatID.Location = new System.Drawing.Point(245, 122);
+            this.txtcatID.Name = "txtcatID";
+            this.txtcatID.ReadOnly = true;
+            this.txtcatID.Size = new System.Drawing.Size(200, 20);
+            this.txtcatID.TabIndex = 3;
             // 
-            // txtBrandName
+            // txtCatName
             // 
-            this.txtBrandName.Location = new System.Drawing.Point(245, 197);
-            this.txtBrandName.Name = "txtBrandName";
-            this.txtBrandName.Size = new System.Drawing.Size(200, 20);
-            this.txtBrandName.TabIndex = 4;
+            this.txtCatName.Location = new System.Drawing.Point(245, 197);
+            this.txtCatName.Name = "txtCatName";
+            this.txtCatName.Size = new System.Drawing.Size(200, 20);
+            this.txtCatName.TabIndex = 4;
             // 
             // btnSave
             // 
@@ -82,6 +83,7 @@
             this.btnSave.TabIndex = 14;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnCancel
             // 
@@ -123,12 +125,13 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSave);
-            this.Controls.Add(this.txtBrandName);
-            this.Controls.Add(this.txtBrandID);
+            this.Controls.Add(this.txtCatName);
+            this.Controls.Add(this.txtcatID);
             this.Controls.Add(this.lblcatName);
             this.Controls.Add(this.lblcatID);
             this.Name = "CreateCategory";
-            this.Text = "CreateCategory";
+            this.Text = "txtCreateCategory";
+            this.Load += new System.EventHandler(this.CreateCategory_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -139,8 +142,8 @@
 
         private System.Windows.Forms.Label lblcatID;
         private System.Windows.Forms.Label lblcatName;
-        private System.Windows.Forms.TextBox txtBrandID;
-        private System.Windows.Forms.TextBox txtBrandName;
+        private System.Windows.Forms.TextBox txtcatID;
+        private System.Windows.Forms.TextBox txtCatName;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.PictureBox pictureBox1;

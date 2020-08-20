@@ -152,6 +152,9 @@
     <EmbeddedResource Include="View\CreateBrand.resx">
       <DependentUpon>CreateBrand.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\CreateCategory.resx">
+      <DependentUpon>CreateCategory.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\CreateProduct.resx">
       <DependentUpon>CreateProduct.cs</DependentUpon>
     </EmbeddedResource>

@@ -18,10 +18,14 @@ namespace GroupAProducts.Common
 
         public static ProductModel objProducts;
 
+        public static CategoryModel objProductCategory;
+
         public static string btnstatus = null;
 
         public static string PDetailAutoID = null;
 
         public static string ProductAutoID = null;
+
+        public static string ProCategoryAutoID = null;
     }
 }

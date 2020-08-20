@@ -71,6 +71,11 @@ namespace GroupAProducts.Repository
             return productlist;
         }
 
+        internal ReturnDataModel saveProducts(CategoryModel objProductCategory, out string error)
+        {
+            throw new NotImplementedException();
+        }
+
         public List<ProductDetailModel> getProductDetailList(
             string p_productid,
             string p_pcatid,
