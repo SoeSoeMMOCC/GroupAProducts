@@ -20,6 +20,8 @@ namespace GroupAProducts.Common
 
         public static Brand objBrand; //create brand object
 
+        public static CategoryModel objProductCategory; //create Category object
+
         public static string btnstatus = null;
 
         public static string PDetailAutoID = null; //autoid for productdetails
@@ -28,6 +30,6 @@ namespace GroupAProducts.Common
 
         public static string BrandAutoID = null; //autoid for brand
 
-        public static string ProCategoryAutoID { get; internal set; }
+        public static string ProCategoryAutoID = null;
     }
 }
