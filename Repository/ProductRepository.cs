@@ -269,7 +269,7 @@ namespace GroupAProducts.Repository
             return retdata;
         }
 
-        public ReturnDataModel updateProductDetail(
+       public ReturnDataModel updateProductDetail(
        string p_detailid,
        ProductDetailModel p_productdetail,
        out string error)
@@ -447,6 +447,111 @@ namespace GroupAProducts.Repository
             new_detailid = prefix + Convert.ToString(detailid + 1);
 
             return new_detailid;
+        }
+
+        public ReturnDataModel saveProducts(
+        ProductModel p_product,
+        out string error)
+        {
+            error = "";
+            int iresult = 1;
+            ReturnDataModel retdata = new ReturnDataModel();   
+            var insert_sql = "INSERT INTO products(productid, productname, isactive, ts, brandid, pcatid) " +
+                "VALUES(@p_productid,@p_productname,@p_isactive,@p_ts,@p_brandid,@p_pcatid); ";
+            var parameters = new DynamicParameters();
+            parameters.Add("p_productid", p_product.productid, GetDbType(""));
+            parameters.Add("p_productname", p_product.productname, GetDbType(""));
+            parameters.Add("p_isactive", true, GetDbType(true));
+            parameters.Add("p_ts", DateTime.Now, GetDbType(DateTime.Now));
+            parameters.Add("p_brandid", p_product.brandid, GetDbType(""));
+            parameters.Add("p_pcatid", p_product.pcatid, GetDbType(""));
+            try
+            {
+                iresult = GADB().Execute(insert_sql, param: parameters);
+                iresult = 1;
+                goto returnData;
+            }
+            catch (Exception e)
+            {
+                //MMTSALE.WriteLog($"system error-{e.Message}");
+                iresult = 0;
+                error = "Insertion failed.";
+                goto returnData;
+            }           
+
+            returnData:
+            retdata.errorMsg = error;
+            retdata.retStatus = (iresult == 1) ? true : false;
+
+            return retdata;
+        }
+        public ReturnDataModel saveBrand(
+        Brand p_brand,
+        out string error)
+        {
+            error = "";
+            int iresult = 1;
+            ReturnDataModel retdata = new ReturnDataModel();
+            var insert_sql = "INSERT INTO brand(brandid, brandname, isactive, ts) " +
+                "VALUES (@p_branid,@p_brandname,@p_isactive,@p_ts);";
+            var parameters = new DynamicParameters();
+            parameters.Add("p_branid", p_brand.brandid, GetDbType(""));
+            parameters.Add("p_brandname", p_brand.brandname, GetDbType(""));
+            parameters.Add("p_isactive", true, GetDbType(true));
+            parameters.Add("p_ts", DateTime.Now, GetDbType(DateTime.Now));
+            try
+            {
+                iresult = GADB().Execute(insert_sql, param: parameters);
+                iresult = 1;
+                goto returnData;
+            }
+            catch (Exception e)
+            {
+                //MMTSALE.WriteLog($"system error-{e.Message}");
+                iresult = 0;
+                error = "Insertion failed.";
+                goto returnData;
+            }
+
+            returnData:
+            retdata.errorMsg = error;
+            retdata.retStatus = (iresult == 1) ? true : false;
+
+            return retdata;
+        }
+        public ReturnDataModel saveCategory(
+        CategoryModel p_category,
+        out string error)
+        {
+            error = "";
+            int iresult = 1;
+            ReturnDataModel retdata = new ReturnDataModel();
+            var insert_sql = "INSERT INTO public.productcategory(pcatid, pcatname, isactive, ts) " +
+                "VALUES (@p_catid,@p_catname,@p_isactive,@p_ts);";
+            var parameters = new DynamicParameters();
+            parameters.Add("p_catid", p_category.pcatid, GetDbType(""));
+            parameters.Add("p_catname", p_category.pcatname, GetDbType(""));
+            parameters.Add("p_isactive", true, GetDbType(true));
+            parameters.Add("p_ts", DateTime.Now, GetDbType(DateTime.Now));
+            try
+            {
+                iresult = GADB().Execute(insert_sql, param: parameters);
+                iresult = 1;
+                goto returnData;
+            }
+            catch (Exception e)
+            {
+                //MMTSALE.WriteLog($"system error-{e.Message}");
+                iresult = 0;
+                error = "Insertion failed.";
+                goto returnData;
+            }
+
+            returnData:
+            retdata.errorMsg = error;
+            retdata.retStatus = (iresult == 1) ? true : false;
+
+            return retdata;
         }
     }
 }
