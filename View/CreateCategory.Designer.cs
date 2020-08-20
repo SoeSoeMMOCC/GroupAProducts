@@ -43,7 +43,7 @@
             // 
             this.lblcatID.AutoSize = true;
             this.lblcatID.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblcatID.Location = new System.Drawing.Point(97, 123);
+            this.lblcatID.Location = new System.Drawing.Point(167, 126);
             this.lblcatID.Name = "lblcatID";
             this.lblcatID.Size = new System.Drawing.Size(93, 17);
             this.lblcatID.TabIndex = 1;
@@ -53,7 +53,7 @@
             // 
             this.lblcatName.AutoSize = true;
             this.lblcatName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblcatName.Location = new System.Drawing.Point(97, 198);
+            this.lblcatName.Location = new System.Drawing.Point(167, 200);
             this.lblcatName.Name = "lblcatName";
             this.lblcatName.Size = new System.Drawing.Size(119, 17);
             this.lblcatName.TabIndex = 2;
@@ -61,7 +61,7 @@
             // 
             // txtcatID
             // 
-            this.txtcatID.Location = new System.Drawing.Point(245, 122);
+            this.txtcatID.Location = new System.Drawing.Point(355, 123);
             this.txtcatID.Name = "txtcatID";
             this.txtcatID.ReadOnly = true;
             this.txtcatID.Size = new System.Drawing.Size(200, 20);
@@ -69,7 +69,7 @@
             // 
             // txtCatName
             // 
-            this.txtCatName.Location = new System.Drawing.Point(245, 197);
+            this.txtCatName.Location = new System.Drawing.Point(355, 197);
             this.txtCatName.Name = "txtCatName";
             this.txtCatName.Size = new System.Drawing.Size(200, 20);
             this.txtCatName.TabIndex = 4;
@@ -77,7 +77,7 @@
             // btnSave
             // 
             this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSave.Location = new System.Drawing.Point(125, 310);
+            this.btnSave.Location = new System.Drawing.Point(142, 310);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(118, 32);
             this.btnSave.TabIndex = 14;
@@ -88,12 +88,13 @@
             // btnCancel
             // 
             this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancel.Location = new System.Drawing.Point(373, 310);
+            this.btnCancel.Location = new System.Drawing.Point(475, 309);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(118, 33);
             this.btnCancel.TabIndex = 15;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // pictureBox1
             // 

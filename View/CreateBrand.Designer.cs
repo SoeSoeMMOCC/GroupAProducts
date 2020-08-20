@@ -43,7 +43,7 @@
             // 
             this.lblbrandID.AutoSize = true;
             this.lblbrandID.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblbrandID.Location = new System.Drawing.Point(117, 116);
+            this.lblbrandID.Location = new System.Drawing.Point(117, 119);
             this.lblbrandID.Name = "lblbrandID";
             this.lblbrandID.Size = new System.Drawing.Size(71, 17);
             this.lblbrandID.TabIndex = 0;
@@ -53,7 +53,7 @@
             // 
             this.lblbrandName.AutoSize = true;
             this.lblbrandName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblbrandName.Location = new System.Drawing.Point(117, 179);
+            this.lblbrandName.Location = new System.Drawing.Point(117, 197);
             this.lblbrandName.Name = "lblbrandName";
             this.lblbrandName.Size = new System.Drawing.Size(97, 17);
             this.lblbrandName.TabIndex = 1;
@@ -61,7 +61,7 @@
             // 
             // txtBrandID
             // 
-            this.txtBrandID.Location = new System.Drawing.Point(232, 113);
+            this.txtBrandID.Location = new System.Drawing.Point(279, 116);
             this.txtBrandID.Name = "txtBrandID";
             this.txtBrandID.ReadOnly = true;
             this.txtBrandID.Size = new System.Drawing.Size(200, 20);
@@ -69,7 +69,7 @@
             // 
             // txtBrandName
             // 
-            this.txtBrandName.Location = new System.Drawing.Point(232, 176);
+            this.txtBrandName.Location = new System.Drawing.Point(279, 194);
             this.txtBrandName.Name = "txtBrandName";
             this.txtBrandName.Size = new System.Drawing.Size(200, 20);
             this.txtBrandName.TabIndex = 3;
@@ -77,7 +77,7 @@
             // btnSave
             // 
             this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSave.Location = new System.Drawing.Point(145, 280);
+            this.btnSave.Location = new System.Drawing.Point(170, 328);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(100, 31);
             this.btnSave.TabIndex = 13;
@@ -88,7 +88,7 @@
             // btnCancel
             // 
             this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancel.Location = new System.Drawing.Point(363, 280);
+            this.btnCancel.Location = new System.Drawing.Point(433, 328);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(100, 31);
             this.btnCancel.TabIndex = 14;
@@ -110,7 +110,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(184, 32);
+            this.label1.Location = new System.Drawing.Point(226, 33);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(253, 31);
             this.label1.TabIndex = 22;

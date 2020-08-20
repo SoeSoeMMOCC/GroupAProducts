@@ -33,7 +33,7 @@ namespace GroupAProducts.View
         {
             //ProCategoryAutoID                
             GA_Common.ProCategoryAutoID = prodRepo.getProductNoSeries("ProductCategory", out error);
-            txtCatName.Text = GA_Common.ProCategoryAutoID;
+            txtcatID.Text = GA_Common.ProCategoryAutoID;
 
         }
 
@@ -76,6 +76,11 @@ namespace GroupAProducts.View
                 //this.Close();
             }
 
+            this.Close();           
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
             this.Close();
             MainForm = new MainForm();
             MainForm.Show();
