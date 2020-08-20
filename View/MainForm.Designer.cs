@@ -29,17 +29,18 @@
         private void InitializeComponent()
         {
             this.dGV_ProductList = new System.Windows.Forms.DataGridView();
+            this.lblStock = new System.Windows.Forms.Label();
+            this.btnRefresh = new System.Windows.Forms.Button();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.rownum = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ProductID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PCatID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BrandID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BrandName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ProductName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pcatname = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lblStock = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.ProductName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TotalQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dGV_ProductList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -47,6 +48,7 @@
             // 
             // dGV_ProductList
             // 
+            this.dGV_ProductList.AllowUserToOrderColumns = true;
             this.dGV_ProductList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dGV_ProductList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.rownum,
@@ -54,15 +56,58 @@
             this.PCatID,
             this.BrandID,
             this.BrandName,
-            this.ProductName,
             this.pcatname,
-            this.Qty});
-            this.dGV_ProductList.Location = new System.Drawing.Point(12, 89);
+            this.ProductName,
+            this.TotalQuantity});
+            this.dGV_ProductList.Location = new System.Drawing.Point(12, 141);
             this.dGV_ProductList.Name = "dGV_ProductList";
             this.dGV_ProductList.Size = new System.Drawing.Size(470, 362);
             this.dGV_ProductList.TabIndex = 0;
             this.dGV_ProductList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dGV_ProductList_CellContentClick);
             this.dGV_ProductList.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dGV_ProductList_CellMouseClick);
+            // 
+            // lblStock
+            // 
+            this.lblStock.AutoSize = true;
+            this.lblStock.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStock.Location = new System.Drawing.Point(102, 25);
+            this.lblStock.Name = "lblStock";
+            this.lblStock.Size = new System.Drawing.Size(269, 31);
+            this.lblStock.TabIndex = 1;
+            this.lblStock.Text = "Inventory-Stocks List";
+            this.lblStock.Click += new System.EventHandler(this.lblStock_Click);
+            // 
+            // btnRefresh
+            // 
+            this.btnRefresh.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnRefresh.Location = new System.Drawing.Point(12, 112);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(75, 23);
+            this.btnRefresh.TabIndex = 4;
+            this.btnRefresh.Text = "Refresh";
+            this.btnRefresh.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnRefresh.UseVisualStyleBackColor = true;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::GroupAProducts.Properties.Resources.inventoryphoto;
+            this.pictureBox2.Location = new System.Drawing.Point(488, 141);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(284, 287);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 3;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::GroupAProducts.Properties.Resources.teamicon;
+            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(84, 71);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabStop = false;
             // 
             // rownum
             // 
@@ -106,62 +151,25 @@
             this.BrandName.DataPropertyName = "brandname";
             this.BrandName.HeaderText = "Brand Name";
             this.BrandName.Name = "BrandName";
-            this.BrandName.Width = 84;
-            // 
-            // ProductName
-            // 
-            this.ProductName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.ProductName.DataPropertyName = "productname";
-            this.ProductName.HeaderText = "Product Name";
-            this.ProductName.Name = "ProductName";
-            this.ProductName.Width = 92;
+            this.BrandName.Width = 91;
             // 
             // pcatname
             // 
-            this.pcatname.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.pcatname.DataPropertyName = "pcatname";
             this.pcatname.HeaderText = "Category Name";
             this.pcatname.Name = "pcatname";
-            this.pcatname.Width = 96;
             // 
-            // Qty
+            // ProductName
             // 
-            this.Qty.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.Qty.DataPropertyName = "total_qty";
-            this.Qty.HeaderText = "Total Quantity";
-            this.Qty.Name = "Qty";
-            this.Qty.Width = 90;
+            this.ProductName.DataPropertyName = "productname";
+            this.ProductName.HeaderText = "Product Name";
+            this.ProductName.Name = "ProductName";
             // 
-            // lblStock
+            // TotalQuantity
             // 
-            this.lblStock.AutoSize = true;
-            this.lblStock.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStock.Location = new System.Drawing.Point(102, 25);
-            this.lblStock.Name = "lblStock";
-            this.lblStock.Size = new System.Drawing.Size(269, 31);
-            this.lblStock.TabIndex = 1;
-            this.lblStock.Text = "Inventory-Stocks List";
-            this.lblStock.Click += new System.EventHandler(this.lblStock_Click);
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::GroupAProducts.Properties.Resources.inventoryphoto;
-            this.pictureBox2.Location = new System.Drawing.Point(488, 89);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(284, 287);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 3;
-            this.pictureBox2.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::GroupAProducts.Properties.Resources.teamicon;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(84, 71);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 2;
-            this.pictureBox1.TabStop = false;
+            this.TotalQuantity.DataPropertyName = "total_qty";
+            this.TotalQuantity.HeaderText = "Total Quantity";
+            this.TotalQuantity.Name = "TotalQuantity";
             // 
             // MainForm
             // 
@@ -169,7 +177,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.ClientSize = new System.Drawing.Size(784, 463);
+            this.ClientSize = new System.Drawing.Size(784, 504);
+            this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.lblStock);
@@ -190,16 +199,17 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dGV_ProductList;
+        private System.Windows.Forms.Label lblStock;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Button btnRefresh;
         private System.Windows.Forms.DataGridViewTextBoxColumn rownum;
         private System.Windows.Forms.DataGridViewTextBoxColumn ProductID;
         private System.Windows.Forms.DataGridViewTextBoxColumn PCatID;
         private System.Windows.Forms.DataGridViewTextBoxColumn BrandID;
         private System.Windows.Forms.DataGridViewTextBoxColumn BrandName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ProductName;
         private System.Windows.Forms.DataGridViewTextBoxColumn pcatname;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Qty;
-        private System.Windows.Forms.Label lblStock;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ProductName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TotalQuantity;
     }
 }

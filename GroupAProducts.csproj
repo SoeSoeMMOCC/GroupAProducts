@@ -156,6 +156,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="image\inventoryphoto.png" />
+    <Content Include="image\refreshicon.png" />
     <Content Include="image\teamicon.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

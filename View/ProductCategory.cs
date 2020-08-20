@@ -40,7 +40,7 @@ namespace GroupAProducts.View
         }
 
         private void ProductCategory_Load(object sender, EventArgs e)
-        {
+        {            
             BindGrid();
             GA_Common.ProID = null;
             GA_Common.PCatID = null;
@@ -74,7 +74,8 @@ namespace GroupAProducts.View
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
-            //MainForm = new MainForm();
+            MainForm = new MainForm();
+            MainForm.refresh_method();
             //MainForm.Show();
         }
     }

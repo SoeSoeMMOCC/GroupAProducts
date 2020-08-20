@@ -53,6 +53,7 @@ namespace GroupAProducts.View
                 GA_Common.PCatID = Convert.ToString( row.Cells["pcatid"].Value);
                 GA_Common.BrandID = Convert.ToString(row.Cells["brandid"].Value);
             }
+            
             ProductCategoryList = new ProductCategory();
             ProductCategoryList.Show();
         }
@@ -65,6 +66,15 @@ namespace GroupAProducts.View
         private void lblStock_Click(object sender, EventArgs e)
         {
 
+        }
+        public  void refresh_method()
+        {
+            BindGrid();
+        }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            BindGrid();
         }
     }
 }
