@@ -22,6 +22,7 @@ namespace GroupAProducts.View
         private CreateProduct CreateProduct;
         private CreateBrand CreateBrand;
         private CreateCategory CreateCategory;
+        private ProductDetails ProductDetails;
 
         public MainForm()
         {
@@ -100,6 +101,13 @@ namespace GroupAProducts.View
         {
             CreateCategory = new CreateCategory();
             CreateCategory.Show();
+        }
+
+        private void btnSerial_Click(object sender, EventArgs e)
+        {
+            GA_Common.btnstatus = "CreateNew";
+            ProductDetails = new ProductDetails();
+            ProductDetails.Show();
         }
     }
 }

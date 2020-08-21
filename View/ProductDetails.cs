@@ -79,10 +79,6 @@ namespace GroupAProducts.View
                     int brandindex = ObjBrandName.FindIndex(x => x.brandid == GA_Common.BrandID);
                     cmbBrandName.SelectedIndex = brandindex;
 
-                    //productname
-                    //int productindex = ObjProductName.FindIndex(x => x.productid == GA_Common.ProID);
-                    //cmbProductName.SelectedIndex = productindex;
-
                     //categoryname
                     int catindex = ObjCategoryName.FindIndex(x => x.pcatid == GA_Common.PCatID);
                     cmbCategoryName.SelectedIndex = catindex;
@@ -163,7 +159,7 @@ namespace GroupAProducts.View
             }
             else if (DialogResult == DialogResult.No)
             {
-                //this.Close();
+                return;
             }
         }
 
@@ -191,11 +187,7 @@ namespace GroupAProducts.View
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            GA_Common.objProductDetails.detailid = txtProDetailID.Text;
-            //GA_Common.objProductDetails.barcode = txtBarcode.Text;
-            //GA_Common.objProductDetails.productid = cmbProductName.SelectedValue.ToString();
-            //GA_Common.objProductDetails.brandid = cmbBrandName.SelectedValue.ToString();
-            //GA_Common.objProductDetails.pcatid = cmbCategoryName.SelectedValue.ToString();
+            GA_Common.objProductDetails.detailid = txtProDetailID.Text;            
             GA_Common.objProductDetails.colorid = cmbColor.SelectedValue.ToString();
             GA_Common.objProductDetails.sizeid = cmbSize.SelectedValue.ToString();
             GA_Common.objProductDetails.price = Convert.ToInt32(txtPrice.Text);
@@ -280,10 +272,9 @@ namespace GroupAProducts.View
             }
             else if (DialogResult == DialogResult.No)
             {
-                //this.Close();
+                return;
             }
 
-            //refreshdata();
             this.Close();
             ProductCategory = new ProductCategory();
             ProductCategory.Show();
@@ -294,8 +285,7 @@ namespace GroupAProducts.View
         {
             if (cmbBrandName.SelectedValue != null && cmbCategoryName.SelectedValue!=null)
             {
-                List<Products> ObjProductNameByBrand = new List<Products>();
-                //cmbProductName.DataSource = ObjProductNameByBrand;
+                List<Products> ObjProductNameByBrand = new List<Products>();                
                 cmbProductName.ResetText();
                 ObjProductNameByBrand = prodRepo.getProducts("%", cmbCategoryName.SelectedValue.ToString(), cmbBrandName.SelectedValue.ToString(), out error);
                 cmbProductName.DataSource = ObjProductNameByBrand;
@@ -312,7 +302,6 @@ namespace GroupAProducts.View
             if (cmbBrandName.SelectedValue != null && cmbCategoryName.SelectedValue != null)
             {
                 List<Products> ObjProductNameByCat = new List<Products>();
-                //cmbProductName.DataSource = ObjProductNameByCat;
                 cmbProductName.ResetText();
                 ObjProductNameByCat = prodRepo.getProducts("%", cmbCategoryName.SelectedValue.ToString(), cmbBrandName.SelectedValue.ToString(), out error);
                 cmbProductName.DataSource = ObjProductNameByCat;
