@@ -14,8 +14,7 @@ using System.Windows.Forms;
 namespace GroupAProducts.View
 {
     public partial class CreateBrand : Form
-    {
-        private MainForm MainForm;
+    {        
         ProductRepository prodRepo = new ProductRepository();
         string error = "";
         public CreateBrand()
@@ -71,7 +70,7 @@ namespace GroupAProducts.View
             }
             else if (DialogResult == DialogResult.No)
             {
-                //this.Close();
+                return;
             }
 
             this.Close();            

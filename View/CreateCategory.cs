@@ -79,7 +79,7 @@ namespace GroupAProducts.View
             }
             else if (DialogResult == DialogResult.No)
             {
-                //this.Close();
+                return;
             }
 
             this.Close();           
