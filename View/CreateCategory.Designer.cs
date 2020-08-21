@@ -131,7 +131,7 @@
             this.Controls.Add(this.lblcatName);
             this.Controls.Add(this.lblcatID);
             this.Name = "CreateCategory";
-            this.Text = "txtCreateCategory";
+            this.Text = "Create Category";
             this.Load += new System.EventHandler(this.CreateCategory_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
