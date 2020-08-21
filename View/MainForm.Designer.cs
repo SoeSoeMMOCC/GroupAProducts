@@ -44,6 +44,7 @@
             this.btnNewProduct = new System.Windows.Forms.Button();
             this.btnNewBrand = new System.Windows.Forms.Button();
             this.btnNewCat = new System.Windows.Forms.Button();
+            this.btnSerial = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dGV_ProductList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -141,6 +142,7 @@
             // 
             // btnRefresh
             // 
+            this.btnRefresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRefresh.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnRefresh.Location = new System.Drawing.Point(12, 112);
             this.btnRefresh.Name = "btnRefresh";
@@ -173,33 +175,48 @@
             // 
             // btnNewProduct
             // 
-            this.btnNewProduct.Location = new System.Drawing.Point(93, 112);
+            this.btnNewProduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNewProduct.Location = new System.Drawing.Point(262, 112);
             this.btnNewProduct.Name = "btnNewProduct";
-            this.btnNewProduct.Size = new System.Drawing.Size(117, 23);
+            this.btnNewProduct.Size = new System.Drawing.Size(77, 23);
             this.btnNewProduct.TabIndex = 5;
-            this.btnNewProduct.Text = "Create Product";
+            this.btnNewProduct.Text = "(+) Product";
+            this.btnNewProduct.UseCompatibleTextRendering = true;
             this.btnNewProduct.UseVisualStyleBackColor = true;
             this.btnNewProduct.Click += new System.EventHandler(this.btnNewProduct_Click);
             // 
             // btnNewBrand
             // 
-            this.btnNewBrand.Location = new System.Drawing.Point(216, 112);
+            this.btnNewBrand.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNewBrand.Location = new System.Drawing.Point(93, 112);
             this.btnNewBrand.Name = "btnNewBrand";
-            this.btnNewBrand.Size = new System.Drawing.Size(109, 23);
+            this.btnNewBrand.Size = new System.Drawing.Size(77, 23);
             this.btnNewBrand.TabIndex = 6;
-            this.btnNewBrand.Text = "Create Brand";
+            this.btnNewBrand.Text = "(+) Brand";
             this.btnNewBrand.UseVisualStyleBackColor = true;
             this.btnNewBrand.Click += new System.EventHandler(this.btnNewBrand_Click);
             // 
             // btnNewCat
             // 
-            this.btnNewCat.Location = new System.Drawing.Point(331, 112);
+            this.btnNewCat.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNewCat.Location = new System.Drawing.Point(176, 112);
             this.btnNewCat.Name = "btnNewCat";
-            this.btnNewCat.Size = new System.Drawing.Size(120, 23);
+            this.btnNewCat.Size = new System.Drawing.Size(80, 23);
             this.btnNewCat.TabIndex = 7;
-            this.btnNewCat.Text = "Create Category";
+            this.btnNewCat.Text = "(+)Category";
             this.btnNewCat.UseVisualStyleBackColor = true;
             this.btnNewCat.Click += new System.EventHandler(this.btnNewCat_Click);
+            // 
+            // btnSerial
+            // 
+            this.btnSerial.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSerial.Location = new System.Drawing.Point(345, 112);
+            this.btnSerial.Name = "btnSerial";
+            this.btnSerial.Size = new System.Drawing.Size(77, 23);
+            this.btnSerial.TabIndex = 8;
+            this.btnSerial.Text = "(+) Serial";
+            this.btnSerial.UseVisualStyleBackColor = true;
+            this.btnSerial.Click += new System.EventHandler(this.btnSerial_Click);
             // 
             // MainForm
             // 
@@ -208,6 +225,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(784, 504);
+            this.Controls.Add(this.btnSerial);
             this.Controls.Add(this.btnNewCat);
             this.Controls.Add(this.btnNewBrand);
             this.Controls.Add(this.btnNewProduct);
@@ -247,5 +265,6 @@
         private System.Windows.Forms.Button btnNewProduct;
         private System.Windows.Forms.Button btnNewBrand;
         private System.Windows.Forms.Button btnNewCat;
+        private System.Windows.Forms.Button btnSerial;
     }
 }
