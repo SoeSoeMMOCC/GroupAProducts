@@ -86,6 +86,7 @@
             this.ProductID.HeaderText = "Product ID";
             this.ProductID.Name = "ProductID";
             this.ProductID.Visible = false;
+            this.ProductID.Width = 83;
             // 
             // PCatID
             // 
@@ -94,6 +95,7 @@
             this.PCatID.HeaderText = "Category ID";
             this.PCatID.Name = "PCatID";
             this.PCatID.Visible = false;
+            this.PCatID.Width = 88;
             // 
             // BrandID
             // 
@@ -102,6 +104,7 @@
             this.BrandID.HeaderText = "Brand ID";
             this.BrandID.Name = "BrandID";
             this.BrandID.Visible = false;
+            this.BrandID.Width = 74;
             // 
             // BrandName
             // 
